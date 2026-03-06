@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CYS Academy - Premier IT Software Training Institute in Bangalore</title>
+    <link rel="shortcut icon" href="assets/images/cys-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* Hero: full viewport, gradient overlay – original look */
+        .hero-section-2.hero-section-3 {
+            min-height: 100vh;
+            max-height: 100vh;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: #102039;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+        .hero-section-2.hero-section-3 .hero-bg-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: 0;
+        }
+        .hero-section-2.hero-section-3::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(16, 32, 57, 0.85) 0%, rgba(16, 32, 57, 0.6) 50%, rgba(254, 99, 14, 0.25) 100%);
+            z-index: 1;
+        }
+        .hero-section-2.hero-section-3 .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        .hero-section-2.hero-section-3 .row {
+            width: 100%;
+            margin: 0;
+            justify-content: center;
+        }
+        .hero-section-2.hero-section-3 .hero-content {
+            text-align: center;
+            width: 100%;
+        }
+        .hero-section-2.hero-section-3 .hero-tagline {
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #fe630e;
+            margin: 0;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.3);
+        }
+        .hero-section-2.hero-section-3 .hero-content h1 {
+            font-size: clamp(1.75rem, 4vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.25;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+            color: #fff;
+        }
+        .hero-section-2.hero-section-3 .hero-content p {
+            font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+            color: rgba(255,255,255,0.92);
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+        }
+        .hero-section-2.hero-section-3 .button-part {
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            display: flex;
+        }
+        .hero-section-2.hero-section-3 .button-part .template-btn {
+            flex-shrink: 0;
+        }
+        .hero-section-2.hero-section-3 .template-btn {
+            box-shadow: 0 4px 20px rgba(254, 99, 14, 0.4);
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+        /* Second button: visible on dark background */
+        .hero-section-2.hero-section-3 .template-btn.btn-2 {
+            color: #fff;
+            background-color: rgba(255,255,255,0.15);
+            border: 2px solid rgba(255,255,255,0.9);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+        }
+        .hero-section-2.hero-section-3 .template-btn.btn-2:hover {
+            color: #102039;
+            background-color: #fff;
+            border-color: #fff;
+        }
+        .hero-section-2.hero-section-3 .hero-content .margin-top-20 { margin-top: 1.25rem; }
+        .hero-section-2.hero-section-3 .hero-content .margin-top-40 { margin-top: 2rem; }
+        @media (max-width: 767.98px) {
+            .hero-section-2.hero-section-3 {
+                min-height: 75vh;
+                max-height: 75vh;
+            }
+            .hero-section-2.hero-section-3 .button-part .margin-left-20 { margin-left: 0; }
+        }
+        /* Hero entrance animation – staggered fade-in + slide-up */
+        .hero-section-2.hero-section-3 .hero-content .hero-tagline,
+        .hero-section-2.hero-section-3 .hero-content .hero-title,
+        .hero-section-2.hero-section-3 .hero-content .hero-desc,
+        .hero-section-2.hero-section-3 .hero-content .button-part {
+            opacity: 0;
+            animation: heroReveal 0.8s ease-out forwards;
+        }
+        .hero-section-2.hero-section-3 .hero-content .hero-tagline { animation-delay: 0.2s; }
+        .hero-section-2.hero-section-3 .hero-content .hero-title { animation-delay: 0.4s; }
+        .hero-section-2.hero-section-3 .hero-content .hero-desc { animation-delay: 0.65s; }
+        .hero-section-2.hero-section-3 .hero-content .button-part { animation-delay: 0.95s; }
+        @keyframes heroReveal {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Section headings – dark gray + orange accent */
+        .section-top h2 {
+            color: #1a1a1a;
+            font-weight: 700;
+            font-size: 42px;
+        }
+        .section-top h2 .accent {
+            color: #fe630e;
+        }
+        @media (max-width: 767.98px) {
+            .section-top h2 {
+                font-size: 30px;
+            }
+        }
+        /* About section heading – same dark gray + orange */
+        .about-section.about-section-2.about-section-3 .about-content h2 {
+            color: #1a1a1a;
+        }
+        .about-section.about-section-2.about-section-3 .about-content h2 .accent {
+            color: #fe630e;
+        }
+        /* Course cards only – simple & appealing (index page) */
+        .course-section.course-section-3 .single-course {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .course-section.course-section-3 .single-course:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+        .course-section.course-section-3 .single-course .course-image {
+            height: 160px;
+            overflow: hidden;
+        }
+        .course-section.course-section-3 .single-course .course-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: none;
+        }
+        .course-section.course-section-3 .single-course:hover .course-image img {
+            transform: scale(1.05);
+        }
+        .course-section.course-section-3 .single-course .course-content {
+            padding: 1.25rem 1.25rem 1.5rem;
+        }
+        .course-section.course-section-2.course-section-3 .single-course .course-content .course-category {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #fe630e;
+        }
+        .course-section.course-section-2.course-section-3 .single-course .course-content .course-category i {
+            color: #fe630e;
+            font-size: 0.9rem;
+        }
+        .course-section.course-section-2.course-section-3 .single-course .course-content .course-duration {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.85rem;
+            color: #606060;
+            margin-left: 0.75rem;
+            vertical-align: middle;
+        }
+        .course-section.course-section-3 .single-course .course-content .course-duration i {
+            color: #fe630e;
+            font-size: 0.9rem;
+        }
+        .course-section.course-section-3 .single-course .course-content h4 {
+            margin-top: 0.6rem;
+        }
+        .course-section.course-section-3 .single-course .course-content h4 a {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .course-section.course-section-3 .single-course .course-content p {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            color: #606060;
+            line-height: 1.5;
+        }
+        .course-section.course-section-3 .single-course .course-content span.divider {
+            margin: 0.75rem 0;
+        }
+        .course-section.course-section-3 .single-course .course-content .course-bottom {
+            padding-top: 0.75rem !important;
+        }
+        .course-section.course-section-3 .single-course .course-content .course-bottom .template-btn.btn-2 {
+            padding: 0.4rem 1rem;
+            font-size: 0.9rem;
+        }
+        /* Video / CTA section – simple & appealing */
+        .video-section.video-section-3 {
+            background-color: #f8f9fc;
+            padding: 4rem 0;
+        }
+        .video-section.video-section-3 .video-content {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .video-section.video-section-3 .video-content .tagline {
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #fe630e;
+            margin: 0 0 0.6rem 0;
+        }
+        .video-section.video-section-3 .video-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0 0 1rem 0;
+            line-height: 1.3;
+        }
+        .video-section.video-section-3 .video-content h2 .accent {
+            color: #fe630e;
+        }
+        .video-section.video-section-3 .video-content p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #606060;
+            margin: 0 0 1.25rem 0;
+        }
+        .video-section.video-section-3 .video-content .phone-number {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #fe630e;
+            margin: 0 0 1.5rem 0;
+        }
+        .video-section.video-section-3 .video-content .phone-number i {
+            margin-right: 0.5rem;
+            color: #fe630e;
+        }
+        .video-section.video-section-3 .video-content .about-button {
+            margin: 0;
+        }
+        .video-section.video-section-3 .video-content .template-btn {
+            background-color: #fe630e;
+            border-color: #fe630e;
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+        }
+        .video-section.video-section-3 .video-content .template-btn:hover {
+            background-color: #e55808;
+            border-color: #e55808;
+        }
+        .video-section.video-section-3 .video-area {
+            padding-bottom: 0;
+        }
+        .video-section.video-section-3 .video-area img {
+            width: 100%;
+            top: 0;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+        }
+        .video-section.video-section-3 .video-area .video-play-button a {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            color: #fe630e;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .video-section.video-section-3 .video-area .video-play-button a:hover {
+            transform: scale(1.08);
+            box-shadow: 0 6px 24px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 991.98px) {
+            .video-section.video-section-3 .video-area img {
+                margin-top: 1rem;
+            }
+        }
+        @media (max-width: 767.98px) {
+            .video-section.video-section-3 .video-content h2 {
+                font-size: 1.5rem;
+            }
+        }
+        /* Testimonials & Blog sections – match home style */
+        .feedback-section.feedback-section-2.feedback-section-3 {
+            background-color: #f8f9fc;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .section-top {
+            text-align: center;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .section-top h2 {
+            margin-bottom: 0.5rem;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .section-top p {
+            margin: 0;
+            color: #606060;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback {
+            position: relative;
+            padding: 1.75rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .testimonial-cards .col-lg-4,
+        .feedback-section.feedback-section-2.feedback-section-3 .testimonial-cards .col-md-6 {
+            margin-bottom: 1.5rem;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback.feedback-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback.feedback-card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+            transform: translateY(-4px);
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback.feedback-card p {
+            flex: 1;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback span.quote-icon {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.5rem;
+            font-size: 1.75rem;
+            color: rgba(0,0,0,0.12);
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback p {
+            color: #606060;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            padding-right: 2rem;
+            margin-bottom: 1.25rem;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback .reviewer-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback .reviewer-image {
+            flex-shrink: 0;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback .reviewer-image img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: block;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback .reviewer-text {
+            min-width: 0;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback .reviewer-text h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .feedback-section.feedback-section-2.feedback-section-3 .single-feedback .reviewer-text .designation {
+            color: #606060;
+            font-size: 0.85rem;
+            margin-top: 0.2rem;
+        }
+        .blog-section.blog-section-2.blog-section-3 {
+            background-color: #f8f9fc;
+        }
+        .blog-section.blog-section-2.blog-section-3 .blog-cards .col-lg-4,
+        .blog-section.blog-section-2.blog-section-3 .blog-cards .col-md-6 {
+            margin-bottom: 1.5rem;
+        }
+        .blog-section.blog-section-2.blog-section-3 .blog-cards.margin-top-50 {
+            margin-top: 1.75rem !important;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card:hover {
+            box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-image {
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-image a {
+            display: block;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-image img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            transition: transform 0.35s ease;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card:hover .blog-image img {
+            transform: scale(1.04);
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 1.15rem 1.1rem !important;
+            background: #fff;
+            border-radius: 0 0 12px 12px;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .content-wrap {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+            font-size: 0.8rem;
+            order: 0;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .content-wrap .post-category {
+            color: #fe630e;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .content-wrap .post-tag {
+            color: #909090;
+            text-decoration: none;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .content-wrap a+a {
+            margin-left: 0;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-title {
+            order: 1;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content > p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #606060;
+            margin: 0 0 0.35rem 0 !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            order: 2;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-button {
+            margin: 0 !important;
+            order: 3;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-title h4 {
+            font-size: 1rem;
+            line-height: 1.35;
+            margin: 0 0 0.5rem 0;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-title h4 a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-title h4 a:hover {
+            color: #fe630e;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-button .template-btn {
+            padding: 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #126d63;
+            background: transparent !important;
+            border: none !important;
+            box-shadow: none !important;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            transition: color 0.2s ease, gap 0.2s ease;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-button .template-btn:hover {
+            color: #fe630e;
+            gap: 0.5rem;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .blog-button .template-btn::after {
+            content: '→';
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .margin-top-15,
+        .blog-section.blog-section-2.blog-section-3 .single-blog.blog-card .blog-content .margin-top-20 {
+            margin-top: 0 !important;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: none;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog:hover {
+            box-shadow: none;
+        }
+        .blog-section.blog-section-2.blog-section-3 .single-blog .blog-image img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+        /* Placement Partners – scrolling logos */
+        .placement-partners-section {
+            padding: 4rem 0;
+            background: #fff;
+            overflow: hidden;
+        }
+        .placement-partners-section .section-top {
+            text-align: center;
+        }
+        .placement-partners-section .section-top h2 {
+            margin-bottom: 0.5rem;
+        }
+        .placement-partners-section .section-top p {
+            margin: 0;
+            color: #606060;
+        }
+        .placement-partners-section .partners-logos-wrap {
+            overflow: hidden;
+            width: 100%;
+        }
+        .placement-partners-section .partners-logos-track {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            width: max-content;
+            animation: partners-scroll 30s linear infinite;
+        }
+        .placement-partners-section .partners-logos-track:hover {
+            animation-play-state: paused;
+        }
+        .placement-partners-section .partner-logo {
+            flex-shrink: 0;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.7;
+            transition: opacity 0.2s ease;
+        }
+        .placement-partners-section .partner-logo:hover {
+            opacity: 1;
+        }
+        .placement-partners-section .partner-logo img {
+            max-height: 100%;
+            max-width: 140px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.2s ease;
+        }
+        .placement-partners-section .partner-logo:hover img {
+            filter: grayscale(0%);
+        }
+        @keyframes partners-scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        /* Index page: consistent section spacing – reduce gaps */
+        .about-section.about-section-2.about-section-3,
+        .counterup-section.padding-top-120.padding-bottom-80,
+        .course-section.course-section-2.course-section-3.padding-top-115,
+        .feedback-section.feedback-section-2.feedback-section-3.padding-top-115.padding-bottom-80,
+        .blog-section.blog-section-2.blog-section-3.padding-top-115.padding-bottom-80 {
+            padding-top: 3.5rem !important;
+            padding-bottom: 3.5rem !important;
+        }
+        .placement-partners-section {
+            padding-top: 3.5rem !important;
+            padding-bottom: 3.5rem !important;
+        }
+        .video-section.video-section-3 {
+            padding-top: 3.5rem !important;
+            padding-bottom: 3.5rem !important;
+        }
+        @media (max-width: 767.98px) {
+            .about-section.about-section-2.about-section-3,
+            .counterup-section.padding-top-120.padding-bottom-80,
+            .course-section.course-section-2.course-section-3.padding-top-115,
+            .feedback-section.feedback-section-2.feedback-section-3.padding-top-115.padding-bottom-80,
+            .blog-section.blog-section-2.blog-section-3.padding-top-115.padding-bottom-80,
+            .placement-partners-section,
+            .video-section.video-section-3 {
+                padding-top: 2.5rem !important;
+                padding-bottom: 2.5rem !important;
+            }
+            .counterup-section::before {
+                background-image: none;
+            }
+        }
+        /* Scroll-triggered animations (WOW.js) */
+        .wow {
+            visibility: hidden;
+        }
+        .wow.animated {
+            visibility: visible;
+        }
+        /* Scroll reveal – Intersection Observer fallback (always-on) */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .scroll-reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .scroll-reveal.reveal-left {
+            transform: translateX(-32px) translateY(0);
+        }
+        .scroll-reveal.reveal-left.is-visible {
+            transform: translateX(0) translateY(0);
+        }
+        .scroll-reveal.reveal-right {
+            transform: translateX(32px) translateY(0);
+        }
+        .scroll-reveal.reveal-right.is-visible {
+            transform: translateX(0) translateY(0);
+        }
+        .scroll-reveal.reveal-fade {
+            transform: none;
+        }
+        .scroll-reveal.delay-1 { transition-delay: 0.1s; }
+        .scroll-reveal.delay-2 { transition-delay: 0.2s; }
+        .scroll-reveal.delay-3 { transition-delay: 0.3s; }
+        .scroll-reveal.delay-4 { transition-delay: 0.4s; }
+        .scroll-reveal.delay-5 { transition-delay: 0.5s; }
+        .scroll-reveal.delay-6 { transition-delay: 0.6s; }
+    </style>
+</head>
+
+<body>
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <img src="assets/images/cys-icon.png" alt="CYS Academy" class="preloader-logo">
+            <span class="preloader-loading-text">Loading...</span>
+        </div>
+    </div>
+    <script>
+        (function() {
+            function hidePreloader() {
+                var p = document.getElementById('preloader');
+                if (p) { p.style.opacity = '0'; p.style.pointerEvents = 'none'; p.style.transition = 'opacity 0.4s'; setTimeout(function() { p.style.display = 'none'; }, 400); }
+            }
+            if (document.readyState === 'complete') hidePreloader();
+            else window.addEventListener('load', hidePreloader);
+            setTimeout(hidePreloader, 2500);
+        })();
+    </script>
+
+    <div id="header-include"></div>
+
+    <section class="hero-section-2 hero-section-3">
+        <img src="assets/images/home-3-hero-bg.jpg" alt="" class="hero-bg-image" aria-hidden="true">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-8">
+                    <div class="hero-content">
+                        <p class="hero-tagline">CYS Academy · Bangalore</p>
+                        <h1 class="hero-title margin-top-20">Premier IT Software Training Institute in Bangalore</h1>
+                        <p class="hero-desc margin-top-20">Industry-aligned, career-focused programs in Software Testing, Full Stack Development, DevOps, Data Analytics, and Artificial Intelligence. Build future-ready expertise with hands-on projects and placement support.</p>
+                        <div class="button-part margin-top-40">
+                            <a href="courses.html" class="template-btn"><i class="fa fa-book margin-right-10"></i>Explore Courses</a>
+                            <a href="contact.html" class="template-btn btn-2"><i class="fa fa-envelope margin-right-10"></i>Contact Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section about-section-2 about-section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 scroll-reveal reveal-left delay-1">
+                    <div class="about-content">
+                        <h2>Vision & <span class="accent">Mission</span></h2>
+                        <span class="divider"></span>
+                        <p><strong>Vision:</strong> To be recognized as a premier IT Software training institute in Bangalore, delivering industry-aligned and career-focused programs that empower students and working professionals with future-ready expertise.</p>
+                        <p>At CYS Academy, we envision building a dynamic learning ecosystem where learners develop strong technical proficiency, professional confidence, and real-world practical exposure—enabling them to excel in today's highly competitive and AI-driven technology landscape.</p>
+                        <ul class="margin-top-20">
+                            <li><span class="list-icon"><i class="fa fa-check-circle"></i></span><span>Industry-Relevant IT Training</span></li>
+                            <li><span class="list-icon"><i class="fa fa-check-circle"></i></span><span>Hands-on Projects & Job Readiness</span></li>
+                            <li><span class="list-icon"><i class="fa fa-check-circle"></i></span><span>Resume & Mock Interview Prep</span></li>
+                            <li><span class="list-icon"><i class="fa fa-check-circle"></i></span><span>Placement Assistance</span></li>
+                        </ul>
+                        <div class="about-button margin-top-40">
+                            <a href="aboutus.html" class="template-btn"><i class="fa fa-info-circle margin-right-10"></i>Learn More About Us</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 scroll-reveal reveal-right delay-1">
+                    <div class="about-image">
+                        <img src="assets/images/home-3-about-image.png" alt="CYS Academy" class="main-image">
+                        <div class="shape-image">
+                            <img src="assets/images/home-3-about-shape.png" alt="shape" class="about-shape item-moveTwo">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="course-section course-section-2 course-section-3 padding-top-115">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center scroll-reveal delay-1">
+                        <h2>Our <span class="accent">Courses</span></h2>
+                        <p class="margin-top-10">Industry-aligned programs in Automation Testing, Full Stack Development, DevOps, Data Analytics, and AI/ML. Weekend & weekday batches. Online and classroom training in Bangalore.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50">
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-1">
+                    <div class="single-course">
+                        <div class="course-image"><img src="assets/images/course-1.png" alt="AI Automation Testing"></div>
+                        <div class="course-content">
+                            <span class="course-category"><i class="fa fa-tag"></i> Testing</span>
+                            <span class="course-duration"><i class="fa fa-clock-o"></i> 3 months</span>
+                            <h4 class="margin-top-10"><a href="course-ai-automation-testing.html">AI Powered Automation Testing</a></h4>
+                            <p class="margin-top-10">Selenium, Playwright, TestNG, API Testing & AI testing tools. 100% job-oriented.</p>
+                            <span class="divider"></span>
+                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
+                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 10 Modules</span></div>
+                                <div class="bottom-right"><a href="course-ai-automation-testing.html" class="template-btn btn-2">View Course</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-2">
+                    <div class="single-course">
+                        <div class="course-image"><img src="assets/images/course-2.png" alt="Java Full Stack"></div>
+                        <div class="course-content">
+                            <span class="course-category"><i class="fa fa-tag"></i> Full Stack</span>
+                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <h4 class="margin-top-10"><a href="course-java-fullstack.html">Java Full Stack</a></h4>
+                            <p class="margin-top-10">Core Java, React, Spring Boot, JPA, REST APIs. Build end-to-end applications.</p>
+                            <span class="divider"></span>
+                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
+                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 85 Topics</span></div>
+                                <div class="bottom-right"><a href="course-java-fullstack.html" class="template-btn btn-2">View Course</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-3">
+                    <div class="single-course">
+                        <div class="course-image"><img src="assets/images/course-3.png" alt="Python Full Stack"></div>
+                        <div class="course-content">
+                            <span class="course-category"><i class="fa fa-tag"></i> Full Stack</span>
+                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <h4 class="margin-top-10"><a href="course-python-fullstack.html">Python Full Stack</a></h4>
+                            <p class="margin-top-10">Python, Django, React, SQL. From fundamentals to REST APIs and deployment.</p>
+                            <span class="divider"></span>
+                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
+                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 68 Topics</span></div>
+                                <div class="bottom-right"><a href="course-python-fullstack.html" class="template-btn btn-2">View Course</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-4">
+                    <div class="single-course">
+                        <div class="course-image"><img src="assets/images/course-4.png" alt="DevOps"></div>
+                        <div class="course-content">
+                            <span class="course-category"><i class="fa fa-tag"></i> DevOps</span>
+                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <h4 class="margin-top-10"><a href="course-devops.html">DevOps</a></h4>
+                            <p class="margin-top-10">Linux, Git, Jenkins, Docker, Kubernetes, AWS. End-to-end CI/CD pipelines.</p>
+                            <span class="divider"></span>
+                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
+                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 89 Topics</span></div>
+                                <div class="bottom-right"><a href="course-devops.html" class="template-btn btn-2">View Course</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-5">
+                    <div class="single-course">
+                        <div class="course-image"><img src="assets/images/course-5.png" alt="Data Analytics"></div>
+                        <div class="course-content">
+                            <span class="course-category"><i class="fa fa-tag"></i> Analytics</span>
+                            <span class="course-duration"><i class="fa fa-clock-o"></i> 3 months</span>
+                            <h4 class="margin-top-10"><a href="course-data-analytics.html">Data Analytics</a></h4>
+                            <p class="margin-top-10">Python, Pandas, SQL, Power BI, Excel. Dashboards and real-time projects.</p>
+                            <span class="divider"></span>
+                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
+                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 83 Topics</span></div>
+                                <div class="bottom-right"><a href="course-data-analytics.html" class="template-btn btn-2">View Course</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-6">
+                    <div class="single-course">
+                        <div class="course-image"><img src="assets/images/course-6.png" alt="AI & ML"></div>
+                        <div class="course-content">
+                            <span class="course-category"><i class="fa fa-tag"></i> AI/ML</span>
+                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <h4 class="margin-top-10"><a href="course-aiml.html">AI & Machine Learning</a></h4>
+                            <p class="margin-top-10">Supervised & unsupervised learning, Deep Learning, NLP, MLOps basics.</p>
+                            <span class="divider"></span>
+                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
+                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 85 Topics</span></div>
+                                <div class="bottom-right"><a href="course-aiml.html" class="template-btn btn-2">View Course</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+               
+            </div>
+            <div class="row margin-top-30">
+                <div class="col-12 text-center">
+                    <a href="courses.html" class="template-btn"><i class="fa fa-th-large margin-right-10"></i>View All Courses</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="counterup-section padding-top-120 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup scroll-reveal delay-1">
+                        <div class="counterup-icon"><i class="fa fa-book fa-3x" aria-hidden="true"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter">8</h3></div>
+                            <span>Professional Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup scroll-reveal delay-2">
+                        <div class="counterup-icon"><i class="fa fa-users fa-3x" aria-hidden="true"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter">500</h3></div>
+                            <span>Students Trained</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup scroll-reveal delay-3">
+                        <div class="counterup-icon"><i class="fa fa-briefcase fa-3x" aria-hidden="true"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter">100</h3></div>
+                            <span>% Job-Oriented</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup scroll-reveal delay-4">
+                        <div class="counterup-icon"><i class="fa fa-handshake-o fa-3x" aria-hidden="true"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter">50</h3></div>
+                            <span>Industry Partners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feedback-section feedback-section-2 feedback-section-3 padding-top-115 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center scroll-reveal delay-1">
+                        <h2>What Our <span class="accent">Students</span> Say</h2>
+                        <p class="margin-top-10">Hear from learners who built their IT careers with CYS Academy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50 testimonial-cards">
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-1">
+                    <div class="single-feedback feedback-card">
+                        <span class="quote-icon"><i class="fa fa-quote-right"></i></span>
+                        <p>The Java Full Stack program gave me hands-on projects and mock interviews that helped me crack my first developer role. Trainers are industry-experienced and placement support is genuine.</p>
+                        <div class="reviewer-row">
+                            <div class="reviewer-image"><img src="https://ui-avatars.com/api/?name=Rahul+K&size=80&background=126d63&color=fff" alt="Rahul K"></div>
+                            <div class="reviewer-text">
+                                <h4>Rahul K</h4>
+                                <span class="designation">Java Full Stack · Placed at Tech Company</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-2">
+                    <div class="single-feedback feedback-card">
+                        <span class="quote-icon"><i class="fa fa-quote-right"></i></span>
+                        <p>I switched from manual testing to automation after completing the AI Automation Testing course. Selenium and Playwright were taught with real projects. Highly recommend for QA professionals.</p>
+                        <div class="reviewer-row">
+                            <div class="reviewer-image"><img src="https://ui-avatars.com/api/?name=Priya+M&size=80&background=fe630e&color=fff" alt="Priya M"></div>
+                            <div class="reviewer-text">
+                                <h4>Priya M</h4>
+                                <span class="designation">Automation Testing · QA Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-3">
+                    <div class="single-feedback feedback-card">
+                        <span class="quote-icon"><i class="fa fa-quote-right"></i></span>
+                        <p>DevOps course covered Docker, Kubernetes, and AWS end-to-end. Weekend batches suited my job schedule. Got placed as DevOps Engineer within 3 months of completing the course.</p>
+                        <div class="reviewer-row">
+                            <div class="reviewer-image"><img src="https://ui-avatars.com/api/?name=Arun+S&size=80&background=6b7280&color=fff" alt="Arun S"></div>
+                            <div class="reviewer-text">
+                                <h4>Arun S</h4>
+                                <span class="designation">DevOps · Placed as DevOps Engineer</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blog-section blog-section-2 blog-section-3 padding-top-115 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center scroll-reveal delay-1">
+                        <h2>Latest from Our <span class="accent">Blog</span></h2>
+                        <p class="margin-top-10">Insights on IT careers, tech trends, and learning tips from CYS Academy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50 blog-cards">
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-1">
+                    <div class="single-blog blog-card">
+                        <div class="blog-image">
+                            <a href="blog.html"><img src="assets/images/blog-1.png" alt="AI Automation Testing"></a>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-title">
+                                <h4><a href="blog.html">Why AI-Powered Automation Testing is in High Demand</a></h4>
+                            </div>
+                            <div class="content-wrap">
+                                <a href="blog.html" class="post-category">Testing</a>
+                                <a href="blog.html" class="post-tag">4 Mar, 2025</a>
+                            </div>
+                            <p class="margin-top-15">Learn how automation and AI are reshaping QA roles and what skills you need to stay ahead.</p>
+                            <div class="blog-button margin-top-20">
+                                <a href="blog.html" class="template-btn btn-2 btn-3">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-2">
+                    <div class="single-blog blog-card">
+                        <div class="blog-image">
+                            <a href="blog.html"><img src="assets/images/blog-2.png" alt="Full Stack Career"></a>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-title">
+                                <h4><a href="blog.html">Java vs Python Full Stack: Which Path is Right for You?</a></h4>
+                            </div>
+                            <div class="content-wrap">
+                                <a href="blog.html" class="post-category">Full Stack</a>
+                                <a href="blog.html" class="post-tag">2 Mar, 2025</a>
+                            </div>
+                            <p class="margin-top-15">A comparison of career prospects, learning curve, and industry demand for both stacks.</p>
+                            <div class="blog-button margin-top-20">
+                                <a href="blog.html" class="template-btn btn-2 btn-3">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 scroll-reveal delay-3">
+                    <div class="single-blog blog-card">
+                        <div class="blog-image">
+                            <a href="blog.html"><img src="assets/images/blog-3.png" alt="DevOps"></a>
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-title">
+                                <h4><a href="blog.html">DevOps in 2025: Skills That Get You Hired in Bangalore</a></h4>
+                            </div>
+                            <div class="content-wrap">
+                                <a href="blog.html" class="post-category">DevOps</a>
+                                <a href="blog.html" class="post-tag">28 Feb, 2025</a>
+                            </div>
+                            <p class="margin-top-15">Docker, Kubernetes, AWS, and CI/CD—what recruiters look for in DevOps engineers.</p>
+                            <div class="blog-button margin-top-20">
+                                <a href="blog.html" class="template-btn btn-2 btn-3">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-30">
+                <div class="col-12 text-center">
+                    <a href="blog.html" class="template-btn"><i class="fa fa-th-large margin-right-10"></i>View All Articles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="placement-partners-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center scroll-reveal delay-1">
+                        <h2>Our <span class="accent">Placement Partners</span></h2>
+                        <p class="margin-top-10">Companies where our graduates build their careers</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50">
+                <div class="col-12">
+                    <div class="partners-logos-wrap">
+                <div class="partners-logos-track">
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+1" alt="Partner 1"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+2" alt="Partner 2"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+3" alt="Partner 3"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+4" alt="Partner 4"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+5" alt="Partner 5"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+6" alt="Partner 6"></a>
+                    <!-- Duplicate set for seamless loop -->
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+1" alt="Partner 1"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+2" alt="Partner 2"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+3" alt="Partner 3"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+4" alt="Partner 4"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+5" alt="Partner 5"></a>
+                    <a href="#" class="partner-logo" aria-label="Placement Partner"><img src="https://placehold.co/130x52/e8ecf2/606060?text=Partner+6" alt="Partner 6"></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section video-section-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 scroll-reveal reveal-left delay-1">
+                    <div class="video-content">
+                        <span class="tagline">CYS Academy, Bangalore</span>
+                        <h2>Ready to build your <span class="accent">IT career?</span></h2>
+                        <p class="margin-top-20">We offer affordable, flexible online and classroom training. Expert mentorship, resume building, mock interviews, and placement assistance to help you land your dream role in the tech industry.</p>
+                        <span class="phone-number"><i class="fa fa-phone margin-right-10"></i>Call Us +91 98765 43210</span>
+                        <div class="about-button">
+                            <a href="contact.html" class="template-btn"><i class="fa fa-paper-plane margin-right-10"></i>Contact Now</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7 scroll-reveal reveal-right delay-1">
+                    <div class="video-area">
+                        <img src="assets/images/video-image.png" alt="CYS Academy">
+                        <div class="video-play-button">
+                            <a href="contact.html" class="item-ripple"><i class="fa fa-play"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-include"></div>
+
+    <script src="assets/js/includes.js"></script>
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/waypoints.min.js"></script>
+    <script src="assets/js/vendor/slick.min.js"></script>
+    <script src="assets/js/vendor/counterup.min.js"></script>
+    <script src="assets/js/vendor/easing.min.js"></script>
+    <script src="assets/js/vendor/meanmenu.min.js"></script>
+    <script src="assets/js/vendor/jquery.magnific-popup.js"></script>
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        (function() {
+            function initScrollReveal() {
+                var els = document.querySelectorAll('.scroll-reveal');
+                if (!els.length) return;
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    });
+                }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+                els.forEach(function(el) { observer.observe(el); });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initScrollReveal);
+            } else {
+                initScrollReveal();
+            }
+        })();
+    </script>
+</body>
+
+</html>

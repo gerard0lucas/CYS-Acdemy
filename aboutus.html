@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - CYS Academy | IT Training Institute Bangalore</title>
+    <link rel="shortcut icon" href="assets/images/cys-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/meanmenu.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        /* About page – light theme: dark gray #1a1a1a, accent #fe630e, bg #f8f9fc */
+        .about-page .section-top h2 { color: #1a1a1a; font-weight: 700; font-size: 42px; }
+        .about-page .section-top h2 .accent { color: #fe630e; }
+        .about-page .section-top p { color: #606060; margin-top: 0.5rem; }
+        @media (max-width: 767.98px) { .about-page .section-top h2 { font-size: 30px; } }
+        .about-page .about-section-3 .about-content h2 { color: #1a1a1a; }
+        .about-page .about-section-3 .about-content h2 .accent { color: #fe630e; }
+        /* Vision section: vertical center + balanced spacing */
+        .about-page .about-section.about-section-3 .row {
+            align-items: center;
+        }
+        .about-page .about-section.about-section-3 .about-content {
+            padding-right: 1.5rem;
+        }
+        .about-page .about-section.about-section-3 .about-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .about-page .about-section.about-section-3 .about-image .main-image {
+            max-width: 100%;
+            height: auto;
+        }
+        @media (max-width: 991.98px) {
+            .about-page .about-section.about-section-3 .about-content {
+                padding-right: 0;
+            }
+        }
+        .about-page .why-choose-card {
+            background: #fff; border: none; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+            height: 100%; padding: 1.5rem; text-align: center;
+        }
+        .about-page .why-choose-card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+        .about-page .why-choose-card i.fa { color: #fe630e; }
+        .about-page .why-choose-card h5 { color: #1a1a1a; font-weight: 600; }
+        .about-page .why-choose-card p { color: #606060; font-size: 0.9rem; }
+        .about-page .values-section { background-color: #f8f9fc; }
+        .about-page .value-card {
+            background: #fff; border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+            height: 100%; padding: 1.5rem; text-align: center;
+        }
+        .about-page .value-card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+        .about-page .value-card i.fa { color: #fe630e; }
+        .about-page .value-card h5 { color: #1a1a1a; font-weight: 600; }
+        .about-page .value-card p { color: #606060; font-size: 0.9rem; }
+        .about-page .mentors-section { background-color: #f8f9fc; }
+        .about-page .mentor-card {
+            background: #fff; border-radius: 12px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: box-shadow 0.25s ease, transform 0.25s ease;
+            height: 100%;
+        }
+        .about-page .mentor-card:hover {
+            box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+            transform: translateY(-4px);
+        }
+        .about-page .mentor-card .mentor-image {
+            height: 200px; overflow: hidden; background: #e8ecf2;
+        }
+        .about-page .mentor-card .mentor-image img {
+            width: 100%; height: 100%; object-fit: cover;
+        }
+        .about-page .mentor-card .mentor-content { padding: 1.25rem 1.5rem; }
+        .about-page .mentor-card .mentor-content h5 { color: #1a1a1a; font-weight: 600; margin-bottom: 0.25rem; }
+        .about-page .mentor-card .mentor-content .mentor-role { color: #fe630e; font-size: 0.9rem; font-weight: 600; }
+        .about-page .mentor-card .mentor-content p { color: #606060; font-size: 0.9rem; margin-top: 0.5rem; margin-bottom: 0; }
+        .about-page .cta-section {
+            background: #fe630e;
+        }
+        .about-page .cta-section h2 { color: #fff !important; }
+        .about-page .cta-section p { color: rgba(255,255,255,0.95) !important; }
+        .about-page .cta-section .template-btn {
+            background: #fff;
+            border-color: #fff;
+            color: #fe630e;
+        }
+        .about-page .cta-section .template-btn:hover {
+            background: #1a1a1a;
+            border-color: #1a1a1a;
+            color: #fff;
+        }
+        /* Mission list: icon left, text indented so wrap doesn't mix with icon */
+        .about-page .mission-section ul.list-unstyled {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .about-page .mission-section ul.list-unstyled li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .about-page .mission-section ul.list-unstyled li:last-child {
+            margin-bottom: 0;
+        }
+        .about-page .mission-section ul.list-unstyled li i.fa-check-circle {
+            flex-shrink: 0;
+            margin-top: 0.2rem;
+            color: #fe630e;
+        }
+        .about-page .mission-section ul.list-unstyled li span {
+            flex: 1;
+            min-width: 0;
+            color: #606060;
+        }
+        .about-page .scroll-reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+        .about-page .scroll-reveal.is-visible { opacity: 1; transform: translateY(0); }
+        .about-page .scroll-reveal.delay-1 { transition-delay: 0.1s; }
+        .about-page .scroll-reveal.delay-2 { transition-delay: 0.2s; }
+        .about-page .scroll-reveal.delay-3 { transition-delay: 0.3s; }
+        .about-page .scroll-reveal.delay-4 { transition-delay: 0.4s; }
+    </style>
+</head>
+<body class="about-page">
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <img src="assets/images/cys-icon.png" alt="CYS Academy" class="preloader-logo">
+            <span class="preloader-loading-text">Loading...</span>
+        </div>
+    </div>
+    <script>(function(){function hide(){var p=document.getElementById('preloader');if(p){p.style.opacity='0';p.style.pointerEvents='none';p.style.transition='opacity 0.4s';setTimeout(function(){p.style.display='none';},400);}}if(document.readyState==='complete')hide();else window.addEventListener('load',hide);setTimeout(hide,2500);})();</script>
+
+    <div id="header-include"></div>
+
+    <section class="breadcrumb-section padding-top-120 padding-bottom-60">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1>About Us</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active">About Us</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section about-section-2 about-section-3 padding-top-80 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 scroll-reveal delay-1">
+                    <div class="about-content">
+                        <h2>Our <span class="accent">Vision</span></h2>
+                        <span class="divider"></span>
+                        <p>To be recognized as a <strong>premier IT Software training institute in Bangalore</strong>, delivering industry-aligned and career-focused programs that empower students and working professionals with future-ready expertise in <strong>Software Testing, Full Stack Development, DevOps, Data Analytics, and Artificial Intelligence</strong>.</p>
+                        <p>At CYS Academy, we envision building a dynamic learning ecosystem where learners develop strong technical proficiency, professional confidence, and real-world practical exposure—enabling them to excel in today's highly competitive and AI-driven technology landscape.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 scroll-reveal delay-2">
+                    <div class="about-image">
+                        <img src="assets/images/home-3-about-image.png" alt="CYS Academy" class="main-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-section padding-top-80 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Our <span class="accent">Mission</span></h2>
+                        <p class="margin-top-10">At CYS Academy, Bangalore, our mission is to:</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50">
+                <div class="col-lg-6 scroll-reveal delay-1">
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Deliver high-quality, industry-relevant IT training in Bangalore aligned with current market demands.</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Provide hands-on practical learning and real-time project experience to ensure job readiness.</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Integrate modern automation tools such as Selenium, Playwright, and AI-powered testing into our curriculum.</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Offer structured learning paths in Java Full Stack, Python Full Stack, DevOps, Data Analytics, and AIML.</span></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 scroll-reveal delay-2">
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Enable student success through expert mentorship, resume building, and mock interview preparation.</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Maintain affordable, flexible online and classroom training programs in Bangalore.</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Build strong industry connections to support placement assistance and career growth.</span></li>
+                        <li><i class="fa fa-check-circle" aria-hidden="true"></i><span>Continuously upgrade course content to match the latest IT hiring trends in Bangalore and across India.</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="padding-top-80 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Why Choose <span class="accent">CYS Academy?</span></h2>
+                        <p class="margin-top-10">Industry-aligned training, hands-on projects, and placement support.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50">
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="why-choose-card scroll-reveal delay-1">
+                        <i class="fa fa-laptop fa-3x margin-bottom-20"></i>
+                        <h5>Industry-Aligned Curriculum</h5>
+                        <p class="small">Courses designed with current market demands and hiring trends.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="why-choose-card scroll-reveal delay-2">
+                        <i class="fa fa-code fa-3x margin-bottom-20"></i>
+                        <h5>Hands-On Projects</h5>
+                        <p class="small">Real-time project implementation for job readiness.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="why-choose-card scroll-reveal delay-3">
+                        <i class="fa fa-users fa-3x margin-bottom-20"></i>
+                        <h5>Expert Mentorship</h5>
+                        <p class="small">Resume building, mock interviews, and placement support.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="why-choose-card scroll-reveal delay-4">
+                        <i class="fa fa-calendar fa-3x margin-bottom-20"></i>
+                        <h5>Flexible Batches</h5>
+                        <p class="small">Weekend & weekday batches. Online and classroom in Bangalore.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats / Numbers – light theme -->
+    <section class="counterup-section padding-top-80 padding-bottom-80" style="background: #f8f9fc;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup">
+                        <div class="counterup-icon"><i class="fa fa-book fa-3x" aria-hidden="true" style="color:#fe630e;"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter" style="color:#1a1a1a;">8</h3></div>
+                            <span style="color:#606060;">Professional Courses</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup">
+                        <div class="counterup-icon"><i class="fa fa-users fa-3x" aria-hidden="true" style="color:#fe630e;"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter" style="color:#1a1a1a;">500</h3></div>
+                            <span style="color:#606060;">Students Trained</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup">
+                        <div class="counterup-icon"><i class="fa fa-briefcase fa-3x" aria-hidden="true" style="color:#fe630e;"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter" style="color:#1a1a1a;">100</h3></div>
+                            <span style="color:#606060;">% Job-Oriented</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="single-counterup">
+                        <div class="counterup-icon"><i class="fa fa-handshake-o fa-3x" aria-hidden="true" style="color:#fe630e;"></i></div>
+                        <div class="counterup-content">
+                            <div class="counter-number"><h3 class="title counter" style="color:#1a1a1a;">50</h3></div>
+                            <span style="color:#606060;">Industry Partners</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="values-section padding-top-80 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Our <span class="accent">Core Values</span></h2>
+                        <p class="margin-top-10">The principles that guide everything we do at CYS Academy.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50">
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="value-card scroll-reveal delay-1">
+                        <i class="fa fa-star fa-2x margin-bottom-15"></i>
+                        <h5>Excellence</h5>
+                        <p class="small">We strive for the highest quality in curriculum, delivery, and student outcomes.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="value-card scroll-reveal delay-2">
+                        <i class="fa fa-lightbulb-o fa-2x margin-bottom-15"></i>
+                        <h5>Innovation</h5>
+                        <p class="small">We keep our courses aligned with the latest tools, frameworks, and industry trends.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="value-card scroll-reveal delay-3">
+                        <i class="fa fa-heart fa-2x margin-bottom-15"></i>
+                        <h5>Integrity</h5>
+                        <p class="small">Honest guidance, transparent processes, and genuine placement support for every learner.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="value-card scroll-reveal delay-4">
+                        <i class="fa fa-globe fa-2x margin-bottom-15"></i>
+                        <h5>Inclusivity</h5>
+                        <p class="small">Affordable, flexible learning for freshers and working professionals alike.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mentors -->
+    <section class="mentors-section padding-top-80 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 offset-lg-3">
+                    <div class="section-top text-center">
+                        <h2>Our <span class="accent">Mentors</span></h2>
+                        <p class="margin-top-10">Industry experts who guide and mentor our students to success.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-top-50">
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="mentor-card scroll-reveal delay-1">
+                        <div class="mentor-image">
+                            <img src="https://ui-avatars.com/api/?name=Raj+Kumar&size=400&background=6b7280&color=fff" alt="Raj Kumar">
+                        </div>
+                        <div class="mentor-content">
+                            <h5>Raj Kumar</h5>
+                            <div class="mentor-role">Full Stack & DevOps</div>
+                            <p>12+ years in software development. Trains Java Full Stack, Python, and DevOps.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="mentor-card scroll-reveal delay-2">
+                        <div class="mentor-image">
+                            <img src="https://ui-avatars.com/api/?name=Priya+Sharma&size=400&background=fe630e&color=fff" alt="Priya Sharma">
+                        </div>
+                        <div class="mentor-content">
+                            <h5>Priya Sharma</h5>
+                            <div class="mentor-role">Testing & QA</div>
+                            <p>Expert in Selenium, Playwright & API testing. Leads our Automation Testing program.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="mentor-card scroll-reveal delay-3">
+                        <div class="mentor-image">
+                            <img src="https://ui-avatars.com/api/?name=Arun+Patel&size=400&background=126d63&color=fff" alt="Arun Patel">
+                        </div>
+                        <div class="mentor-content">
+                            <h5>Arun Patel</h5>
+                            <div class="mentor-role">Data & AI/ML</div>
+                            <p>Data Scientist with experience in analytics and ML. Mentors Data Analytics & AI/ML courses.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 margin-bottom-30">
+                    <div class="mentor-card scroll-reveal delay-4">
+                        <div class="mentor-image">
+                            <img src="https://ui-avatars.com/api/?name=Meera+Nair&size=400&background=9ca3af&color=fff" alt="Meera Nair">
+                        </div>
+                        <div class="mentor-content">
+                            <h5>Meera Nair</h5>
+                            <div class="mentor-role">Career & Placements</div>
+                            <p>Leads resume reviews, mock interviews, and placement coordination for all batches.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section padding-top-80 padding-bottom-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2 text-center">
+                    <h2 style="color:#fff; font-weight:700; margin-bottom:15px;">Ready to Build Your IT Career?</h2>
+                    <p style="color:rgba(255,255,255,0.95); font-size:1.1rem; margin-bottom:25px;">Join CYS Academy and get industry-ready with hands-on training, expert mentorship, and placement support.</p>
+                    <a href="contact.html" class="template-btn"><i class="fa fa-paper-plane margin-right-10"></i>Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-include"></div>
+
+    <script src="assets/js/includes.js"></script>
+    <script src="assets/js/vendor/jquery-2.2.4.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/waypoints.min.js"></script>
+    <script src="assets/js/vendor/counterup.min.js"></script>
+    <script src="assets/js/vendor/meanmenu.min.js"></script>
+    <script src="assets/js/vendor/wow.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        if (typeof jQuery !== 'undefined' && jQuery.fn.counterUp) {
+            jQuery(function() { jQuery('.counter').counterUp({ delay: 10, time: 1500 }); });
+        }
+        (function() {
+            function initScrollReveal() {
+                var els = document.querySelectorAll('.about-page .scroll-reveal');
+                if (!els.length) return;
+                var observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                    });
+                }, { rootMargin: '0px 0px -60px 0px', threshold: 0.1 });
+                els.forEach(function(el) { observer.observe(el); });
+            }
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initScrollReveal);
+            } else {
+                initScrollReveal();
+            }
+        })();
+    </script>
+</body>
+</html>
