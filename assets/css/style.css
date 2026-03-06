@@ -744,6 +744,17 @@ nav .main-menu li a::before {
     .breadcrumb-section {
         padding: 60px 0;
     }
+    .breadcrumb-section .row .col-12 {
+        text-align: center;
+    }
+    .breadcrumb-section nav[aria-label="breadcrumb"] {
+        display: flex;
+        justify-content: center;
+    }
+    .breadcrumb-section .breadcrumb {
+        justify-content: center !important;
+        display: flex;
+    }
 }
 
 .breadcrumb-section ul {
