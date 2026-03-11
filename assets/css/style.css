@@ -2355,8 +2355,11 @@ nav .main-menu li a::before {
 
 .about-section li .list-icon {
     text-transform: capitalize;
+    margin-right: 10px;
 }
-
+.about-section li .list-icon .fa-check-circle {
+    color: #ff6b00;
+}
 .about-section li .list-icon img {
     width: 20px;
     margin-right: 10px;
