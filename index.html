@@ -16,11 +16,11 @@
     <link rel="stylesheet" href="assets/css/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        /* Hero: full viewport, gradient overlay – original look */
+        /* Hero: full viewport, gradient overlay – centered content */
         .hero-section-2.hero-section-3 {
             min-height: 100vh;
             max-height: 100vh;
-            padding: 0;
+            padding: 0 !important;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -48,14 +48,28 @@
             z-index: 1;
         }
         .hero-section-2.hero-section-3 .container {
-            position: relative;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
             z-index: 2;
             width: 100%;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .hero-section-2.hero-section-3 .row {
             width: 100%;
             margin: 0;
             justify-content: center;
+            align-items: center;
+        }
+        .hero-section-2.hero-section-3 .row .col-lg-8 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .hero-section-2.hero-section-3 .hero-content {
             text-align: center;
@@ -203,19 +217,6 @@
             color: #fe630e;
             font-size: 0.9rem;
         }
-        .course-section.course-section-2.course-section-3 .single-course .course-content .course-duration {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.35rem;
-            font-size: 0.85rem;
-            color: #606060;
-            margin-left: 0.75rem;
-            vertical-align: middle;
-        }
-        .course-section.course-section-3 .single-course .course-content .course-duration i {
-            color: #fe630e;
-            font-size: 0.9rem;
-        }
         .course-section.course-section-3 .single-course .course-content h4 {
             margin-top: 0.6rem;
         }
@@ -229,16 +230,7 @@
             color: #606060;
             line-height: 1.5;
         }
-        .course-section.course-section-3 .single-course .course-content span.divider {
-            margin: 0.75rem 0;
-        }
-        .course-section.course-section-3 .single-course .course-content .course-bottom {
-            padding-top: 0.75rem !important;
-        }
-        .course-section.course-section-3 .single-course .course-content .course-bottom .template-btn.btn-2 {
-            padding: 0.4rem 1rem;
-            font-size: 0.9rem;
-        }
+        /* Course card buttons use global .course-section-2.course-section-3 styles (View More + Enroll Now) */
         /* Video / CTA section – simple & appealing */
         .video-section.video-section-3 {
             background-color: #f8f9fc;
@@ -784,98 +776,86 @@
                 </div>
             </div>
             <div class="row margin-top-50">
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-1">
+                <div class="col-lg-4 col-md-6 margin-bottom-30 scroll-reveal delay-1">
                     <div class="single-course">
                         <div class="course-image"><img src="assets/images/course-1.png" alt="AI Automation Testing"></div>
                         <div class="course-content">
-                            <span class="course-category"><i class="fa fa-tag"></i> Testing</span>
-                            <span class="course-duration"><i class="fa fa-clock-o"></i> 3 months</span>
+                            <div class="course-category"><a href="course-ai-automation-testing.html">Testing</a></div>
                             <h4 class="margin-top-10"><a href="course-ai-automation-testing.html">AI Powered Automation Testing</a></h4>
-                            <p class="margin-top-10">Selenium, Playwright, TestNG, API Testing & AI testing tools. 100% job-oriented.</p>
-                            <span class="divider"></span>
-                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
-                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 10 Modules</span></div>
-                                <div class="bottom-right"><a href="course-ai-automation-testing.html" class="template-btn btn-2">View Course</a></div>
+                            <p class="margin-top-10">Selenium, Playwright, TestNG, API Testing & AI tools. Real-time projects & placement support.</p>
+                            <div class="course-bottom d-flex align-items-center flex-nowrap padding-top-20">
+                                <a href="course-ai-automation-testing.html" class="template-btn btn-2">View More</a>
+                                <a href="course-ai-automation-testing.html" class="template-btn">Enroll Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-2">
+                <div class="col-lg-4 col-md-6 margin-bottom-30 scroll-reveal delay-2">
                     <div class="single-course">
                         <div class="course-image"><img src="assets/images/course-2.png" alt="Java Full Stack"></div>
                         <div class="course-content">
-                            <span class="course-category"><i class="fa fa-tag"></i> Full Stack</span>
-                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <div class="course-category"><a href="course-java-fullstack.html">Full Stack</a></div>
                             <h4 class="margin-top-10"><a href="course-java-fullstack.html">Java Full Stack</a></h4>
-                            <p class="margin-top-10">Core Java, React, Spring Boot, JPA, REST APIs. Build end-to-end applications.</p>
-                            <span class="divider"></span>
-                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
-                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 85 Topics</span></div>
-                                <div class="bottom-right"><a href="course-java-fullstack.html" class="template-btn btn-2">View Course</a></div>
+                            <p class="margin-top-10">Core Java, React, Spring Boot, JPA. Build end-to-end applications with high demand skills.</p>
+                            <div class="course-bottom d-flex align-items-center flex-nowrap padding-top-20">
+                                <a href="course-java-fullstack.html" class="template-btn btn-2">View More</a>
+                                <a href="course-java-fullstack.html" class="template-btn">Enroll Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-3">
+                <div class="col-lg-4 col-md-6 margin-bottom-30 scroll-reveal delay-3">
                     <div class="single-course">
                         <div class="course-image"><img src="assets/images/course-3.png" alt="Python Full Stack"></div>
                         <div class="course-content">
-                            <span class="course-category"><i class="fa fa-tag"></i> Full Stack</span>
-                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <div class="course-category"><a href="course-python-fullstack.html">Full Stack</a></div>
                             <h4 class="margin-top-10"><a href="course-python-fullstack.html">Python Full Stack</a></h4>
                             <p class="margin-top-10">Python, Django, React, SQL. From fundamentals to REST APIs and deployment.</p>
-                            <span class="divider"></span>
-                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
-                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 68 Topics</span></div>
-                                <div class="bottom-right"><a href="course-python-fullstack.html" class="template-btn btn-2">View Course</a></div>
+                            <div class="course-bottom d-flex align-items-center flex-nowrap padding-top-20">
+                                <a href="course-python-fullstack.html" class="template-btn btn-2">View More</a>
+                                <a href="course-python-fullstack.html" class="template-btn">Enroll Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-4">
+                <div class="col-lg-4 col-md-6 margin-bottom-30 scroll-reveal delay-4">
                     <div class="single-course">
                         <div class="course-image"><img src="assets/images/course-4.png" alt="DevOps"></div>
                         <div class="course-content">
-                            <span class="course-category"><i class="fa fa-tag"></i> DevOps</span>
-                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <div class="course-category"><a href="course-devops.html">DevOps</a></div>
                             <h4 class="margin-top-10"><a href="course-devops.html">DevOps</a></h4>
-                            <p class="margin-top-10">Linux, Git, Jenkins, Docker, Kubernetes, AWS. End-to-end CI/CD pipelines.</p>
-                            <span class="divider"></span>
-                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
-                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 89 Topics</span></div>
-                                <div class="bottom-right"><a href="course-devops.html" class="template-btn btn-2">View Course</a></div>
+                            <p class="margin-top-10">Linux, Git, Jenkins, Docker, Kubernetes, AWS. CI/CD pipelines & AI add-on.</p>
+                            <div class="course-bottom d-flex align-items-center flex-nowrap padding-top-20">
+                                <a href="course-devops.html" class="template-btn btn-2">View More</a>
+                                <a href="course-devops.html" class="template-btn">Enroll Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-5">
+                <div class="col-lg-4 col-md-6 margin-bottom-30 scroll-reveal delay-5">
                     <div class="single-course">
                         <div class="course-image"><img src="assets/images/course-5.png" alt="Data Analytics"></div>
                         <div class="course-content">
-                            <span class="course-category"><i class="fa fa-tag"></i> Analytics</span>
-                            <span class="course-duration"><i class="fa fa-clock-o"></i> 3 months</span>
+                            <div class="course-category"><a href="course-data-analytics.html">Analytics</a></div>
                             <h4 class="margin-top-10"><a href="course-data-analytics.html">Data Analytics</a></h4>
                             <p class="margin-top-10">Python, Pandas, SQL, Power BI, Excel. Dashboards and real-time projects.</p>
-                            <span class="divider"></span>
-                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
-                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 83 Topics</span></div>
-                                <div class="bottom-right"><a href="course-data-analytics.html" class="template-btn btn-2">View Course</a></div>
+                            <div class="course-bottom d-flex align-items-center flex-nowrap padding-top-20">
+                                <a href="course-data-analytics.html" class="template-btn btn-2">View More</a>
+                                <a href="course-data-analytics.html" class="template-btn">Enroll Now</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 scroll-reveal delay-6">
+                <div class="col-lg-4 col-md-6 margin-bottom-30 scroll-reveal delay-6">
                     <div class="single-course">
                         <div class="course-image"><img src="assets/images/course-6.png" alt="AI & ML"></div>
                         <div class="course-content">
-                            <span class="course-category"><i class="fa fa-tag"></i> AI/ML</span>
-                            <span class="course-duration"><i class="fa fa-clock-o"></i> 4 months</span>
+                            <div class="course-category"><a href="course-aiml.html">AI/ML</a></div>
                             <h4 class="margin-top-10"><a href="course-aiml.html">AI & Machine Learning</a></h4>
                             <p class="margin-top-10">Supervised & unsupervised learning, Deep Learning, NLP, MLOps basics.</p>
-                            <span class="divider"></span>
-                            <div class="course-bottom d-flex align-items-center justify-content-between padding-top-20">
-                                <div class="bottom-left"><span><i class="fa fa-clock-o"></i> 85 Topics</span></div>
-                                <div class="bottom-right"><a href="course-aiml.html" class="template-btn btn-2">View Course</a></div>
+                            <div class="course-bottom d-flex align-items-center flex-nowrap padding-top-20">
+                                <a href="course-aiml.html" class="template-btn btn-2">View More</a>
+                                <a href="course-aiml.html" class="template-btn">Enroll Now</a>
                             </div>
                         </div>
                     </div>
@@ -949,7 +929,7 @@
                         <span class="quote-icon"><i class="fa fa-quote-right"></i></span>
                         <p>The Java Full Stack program gave me hands-on projects and mock interviews that helped me crack my first developer role. Trainers are industry-experienced and placement support is genuine.</p>
                         <div class="reviewer-row">
-                            <div class="reviewer-image"><img src="https://ui-avatars.com/api/?name=Rahul+K&size=80&background=126d63&color=fff" alt="Rahul K"></div>
+                            <div class="reviewer-image"><img src="data:image/jpeg;base64,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" alt="Rahul K"></div>
                             <div class="reviewer-text">
                                 <h4>Rahul K</h4>
                                 <span class="designation">Java Full Stack · Placed at Tech Company</span>
@@ -962,7 +942,7 @@
                         <span class="quote-icon"><i class="fa fa-quote-right"></i></span>
                         <p>I switched from manual testing to automation after completing the AI Automation Testing course. Selenium and Playwright were taught with real projects. Highly recommend for QA professionals.</p>
                         <div class="reviewer-row">
-                            <div class="reviewer-image"><img src="https://ui-avatars.com/api/?name=Priya+M&size=80&background=fe630e&color=fff" alt="Priya M"></div>
+                            <div class="reviewer-image"><img src="data:image/jpeg;base64,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" alt="Priya M"></div>
                             <div class="reviewer-text">
                                 <h4>Priya M</h4>
                                 <span class="designation">Automation Testing · QA Engineer</span>
@@ -975,7 +955,7 @@
                         <span class="quote-icon"><i class="fa fa-quote-right"></i></span>
                         <p>DevOps course covered Docker, Kubernetes, and AWS end-to-end. Weekend batches suited my job schedule. Got placed as DevOps Engineer within 3 months of completing the course.</p>
                         <div class="reviewer-row">
-                            <div class="reviewer-image"><img src="https://ui-avatars.com/api/?name=Arun+S&size=80&background=6b7280&color=fff" alt="Arun S"></div>
+                            <div class="reviewer-image"><img src="data:image/jpeg;base64,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" alt="Arun S"></div>
                             <div class="reviewer-text">
                                 <h4>Arun S</h4>
                                 <span class="designation">DevOps · Placed as DevOps Engineer</span>

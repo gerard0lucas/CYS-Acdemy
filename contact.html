@@ -79,7 +79,17 @@
                                     <input type="tel" name="phone" placeholder="Phone Number">
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" name="course" placeholder="Course Interested In">
+                                    <select name="course" class="contact-select" required>
+                                        <option value="">Course Interested In</option>
+                                        <option value="AI Powered Automation Testing">AI Powered Automation Testing</option>
+                                        <option value="Java Full Stack">Java Full Stack</option>
+                                        <option value="Python Full Stack">Python Full Stack</option>
+                                        <option value="DevOps">DevOps</option>
+                                        <option value="Data Analytics">Data Analytics</option>
+                                        <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                        <option value="MERN Full Stack">MERN Full Stack</option>
+                                        <option value="MEAN Full Stack">MEAN Full Stack</option>
+                                    </select>
                                 </div>
                                 <div class="col-12">
                                     <textarea name="message" rows="5" placeholder="Your Message *" required></textarea>
@@ -102,5 +112,15 @@
     <script src="assets/js/vendor/bootstrap.min.js"></script>
     <script src="assets/js/vendor/meanmenu.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+    (function() {
+        var sel = document.querySelector('.contact-form select[name="course"]');
+        if (sel) {
+            function update() { sel.classList.toggle('has-value', sel.value !== ''); }
+            sel.addEventListener('change', update);
+            update();
+        }
+    })();
+    </script>
 </body>
 </html>

@@ -230,6 +230,212 @@ body.mobile-menu-open { overflow: hidden; }
     transition: background 0.2s, color 0.2s;
 }
 .mobile-nav-footer .mobile-nav-social a:hover { background: #fe630e; color: #fff; }
+
+/* Get Started modal */
+.get-started-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+.get-started-modal-overlay.is-open {
+    opacity: 1;
+    visibility: visible;
+}
+.get-started-modal {
+    background: #fff;
+    border-radius: 10px;
+    max-width: 420px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.2);
+    position: relative;
+    transform: scale(0.95);
+    transition: transform 0.25s ease;
+}
+.get-started-modal-overlay.is-open .get-started-modal {
+    transform: scale(1);
+}
+.get-started-modal .modal-header {
+    padding: 14px 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.get-started-modal .modal-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1f2937;
+}
+.get-started-modal .modal-close {
+    width: 34px;
+    height: 34px;
+    border: none;
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    transition: background 0.2s, color 0.2s;
+}
+.get-started-modal .modal-close:hover {
+    background: #e5e7eb;
+    color: #1f2937;
+}
+.get-started-modal .modal-body {
+    padding: 14px 18px 18px;
+    border-top: none;
+}
+.get-started-modal .form-group {
+    margin-bottom: 10px;
+}
+.get-started-modal .form-group:last-of-type { margin-bottom: 12px; }
+.get-started-modal .form-group input,
+.get-started-modal .form-group select,
+.get-started-modal .form-group textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: inherit;
+    transition: border-color 0.2s;
+}
+.get-started-modal .form-group input:focus,
+.get-started-modal .form-group select:focus,
+.get-started-modal .form-group textarea:focus {
+    outline: none;
+    border-color: #126d63;
+}
+.get-started-modal .form-group textarea {
+    resize: vertical;
+    min-height: 56px;
+}
+.get-started-modal .modal-submit {
+    width: 100%;
+    padding: 10px 16px;
+    background: #ff6b00;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.get-started-modal .modal-submit:hover {
+    background: #e56000;
+    color: #fff;
+}
+.get-started-modal .modal-submit:disabled {
+    background: #ff6b00;
+    cursor: not-allowed;
+    opacity: 0.65;
+}
+.get-started-modal .modal-submit:disabled:hover {
+    background: #ff6b00;
+    opacity: 0.65;
+}
+/* Modal accent header */
+.get-started-modal .modal-header-wrap {
+    background: transparent;
+    padding: 14px 18px 12px;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    gap: 12px;
+}
+.get-started-modal .modal-header-wrap .modal-header-text {
+    text-align: center;
+}
+.get-started-modal .modal-header-wrap .modal-title {
+    color: #ff6b00;
+    font-size: 22px;
+    margin: 0 0 4px 0;
+}
+.get-started-modal .modal-header-wrap .modal-subtitle {
+    font-size: 12px;
+    color: #1f2937;
+    opacity: 0.9;
+    margin: 0;
+    font-weight: 400;
+}
+.get-started-modal .modal-header-wrap .modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: transparent;
+    color: #374151;
+    width: 34px;
+    height: 34px;
+    font-size: 20px;
+    border-radius: 0;
+}
+.get-started-modal .modal-header-wrap .modal-close:hover {
+    background: transparent;
+    color: #ff6b00;
+}
+/* Consent checkbox */
+.get-started-modal .form-group-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+}
+.get-started-modal .form-group-consent input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin-top: 1px;
+    accent-color: #126d63;
+    cursor: pointer;
+}
+.get-started-modal .form-group-consent label {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.4;
+    cursor: pointer;
+    margin: 0;
+    flex: 1;
+}
+.get-started-modal .form-group-consent label a {
+    color: #126d63;
+    text-decoration: none;
+}
+.get-started-modal .form-group-consent label a:hover {
+    text-decoration: underline;
+}
+.get-started-modal .form-group-hint {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 4px;
+    margin-bottom: 0;
+}
+.get-started-modal .form-group input,
+.get-started-modal .form-group select,
+.get-started-modal .form-group textarea {
+    padding: 9px 12px;
+}
 </style>
 
 <header class="header-section header-section-3">
@@ -239,13 +445,14 @@ body.mobile-menu-open { overflow: hidden; }
                 <div class="col-lg-6">
                     <div class="topbar-contact">
                         <a href="tel:+919902758811"><span><i class="fa fa-phone"></i></span> +91 99027 58811</a>
+                        <a href="tel:++917204374880"><span><i class="fa fa-phone"></i></span> +91 72043 74880</a>
                         <a href="mailto:info@cysacademy.in" class="margin-left email-address"><span><i class="fa fa-envelope"></i></span> info@cysacademy.in</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="topbar-button">
                         <a href="contact.html"><span><i class="fa fa-sign-in"></i></span> Enquire Now</a>
-                        <a href="courses.html" class="margin-left"><span><i class="fa fa-book"></i></span> View Courses</a>
+                        <a href="../assets/images/brochure.jpeg" class="margin-left" target="_blank" rel="noopener noreferrer"><span><i class="fa fa-download"></i></span> Download Brochure</a>
                     </div>
                 </div>
             </div>
@@ -255,7 +462,7 @@ body.mobile-menu-open { overflow: hidden; }
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-2 col-6">
-                    <div class="logo-area">
+                    <div class="logo-area nav-logo">
                         <a href="index.html"><img src="assets/images/logo.png" alt="CYS Academy"></a>
                     </div>
                 </div>
@@ -284,7 +491,7 @@ body.mobile-menu-open { overflow: hidden; }
                             </li>
                             <li><a href="blog.html">Blog</a></li>
                             <li><a href="contact.html">Contact Us</a></li>
-                            <li class="menu-btn"><a href="contact.html">Get Started</a></li>
+                            <li class="menu-btn"><a href="#" class="js-get-started-open">Get Started</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -311,7 +518,7 @@ body.mobile-menu-open { overflow: hidden; }
                     </li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="contact.html" class="mobile-cta">Get Started</a></li>
+                    <li><a href="#" class="mobile-cta js-get-started-open">Get Started</a></li>
                 </ul>
                 <div class="mobile-nav-footer">
                     <span class="mobile-nav-social-label">Follow us</span>
@@ -327,6 +534,104 @@ body.mobile-menu-open { overflow: hidden; }
         </div>
     </div>
 </header>
+
+<!-- Get Started popup form -->
+<div class="get-started-modal-overlay" id="get-started-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="get-started-modal-title">
+    <div class="get-started-modal" role="document">
+                <div class="modal-header modal-header-wrap">
+            <div class="modal-header-text">
+                <h3 class="modal-title" id="get-started-modal-title">Start Your Journey</h3>
+                <p class="modal-subtitle">Drop your details — we’ll reach out in no time.</p>
+            </div>
+            <button type="button" class="modal-close js-get-started-close" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+            <form class="get-started-form" action="contact.html" method="get">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                </div>
+                <div class="form-group">
+                    <select name="course">
+                        <option value="">Course Interested In</option>
+                        <option value="AI Powered Automation Testing">AI Powered Automation Testing</option>
+                        <option value="Java Full Stack">Java Full Stack</option>
+                        <option value="Python Full Stack">Python Full Stack</option>
+                        <option value="DevOps">DevOps</option>
+                        <option value="Data Analytics">Data Analytics</option>
+                        <option value="AI & Machine Learning">AI & Machine Learning</option>
+                        <option value="MERN Full Stack">MERN Full Stack</option>
+                        <option value="MEAN Full Stack">MEAN Full Stack</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" rows="3" placeholder="Your Message *" required></textarea>
+                </div>
+                <div class="form-group-consent">
+                    <input type="checkbox" id="get-started-consent" name="consent" required aria-describedby="consent-desc">
+                    <label for="get-started-consent" id="consent-desc">
+                        I agree to share my details with CYS Academy for course enquiry.
+                    </label>
+                </div>
+                <button type="submit" class="modal-submit" id="get-started-submit" disabled>Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Sticky social & phone bar (right side) -->
+<div class="sticky-social-bar" aria-label="Social and contact links">
+    <a href="https://www.linkedin.com/company/cys-academybangalore/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa fa-linkedin"></i></a>
+    <a href="https://youtube.com/@cysacademybangalore?si=jJ5IfBlfSxczocdR" target="_blank" rel="noopener noreferrer" title="YouTube"><i class="fa fa-youtube-play"></i></a>
+    <a href="https://www.facebook.com/share/14VJE7qbPnV/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" title="Facebook"><i class="fa fa-facebook"></i></a>
+    <a href="https://www.instagram.com/cysacademy3?igsh=MWoyaGQwemRlMXVmaw==&utm_source=ig_contact_invite" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa fa-instagram"></i></a>
+    <a href="https://wa.me/919902758811" target="_blank" rel="noopener noreferrer" title="WhatsApp"><i class="fa fa-whatsapp"></i></a>
+    <a href="tel:9902758811" title="Call 9902758811"><i class="fa fa-phone"></i></a>
+</div>
+<style>
+.sticky-social-bar {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background-color: #fe630e;
+    padding: 10px 6px 12px;
+    border-radius: 12px 0 0 12px;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+}
+.sticky-social-bar a {
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: opacity 0.2s, background 0.2s;
+    border-radius: 6px;
+}
+.sticky-social-bar a:hover {
+    opacity: 0.9;
+    background: rgba(255,255,255,0.2);
+}
+.sticky-social-bar .fa {
+    font-size: 17px;
+}
+@media (max-width: 767px) {
+    .sticky-social-bar { padding: 8px 5px 10px; }
+    .sticky-social-bar a { width: 28px; height: 28px; }
+    .sticky-social-bar .fa { font-size: 16px; }
+}
+</style>
 
 <script id="header-mobile-script">
 (function() {
@@ -360,6 +665,53 @@ body.mobile-menu-open { overflow: hidden; }
             }
             if (t === panel) openMenu(false);
         });
+
+        // Get Started modal
+        var modal = document.getElementById('get-started-modal');
+        if (modal) {
+            var consentCheck = document.getElementById('get-started-consent');
+            var submitBtn = document.getElementById('get-started-submit');
+            function openGetStartedModal(open) {
+                modal.classList.toggle('is-open', open);
+                modal.setAttribute('aria-hidden', !open);
+                document.body.style.overflow = open ? 'hidden' : '';
+                if (!open) {
+                    var form = modal.querySelector('.get-started-form');
+                    if (form) form.reset();
+                    if (consentCheck) consentCheck.checked = false;
+                    if (submitBtn) submitBtn.disabled = true;
+                }
+            }
+            if (consentCheck && submitBtn) {
+                consentCheck.addEventListener('change', function() {
+                    submitBtn.disabled = !consentCheck.checked;
+                });
+            }
+            document.addEventListener('click', function(e) {
+                var openTrigger = e.target.classList && e.target.classList.contains('js-get-started-open') ? e.target : (e.target.closest && e.target.closest('.js-get-started-open'));
+                if (openTrigger) {
+                    e.preventDefault();
+                    openGetStartedModal(true);
+                    openMenu(false);
+                    openTrigger.blur();
+                }
+                var enrollLink = (e.target.tagName === 'A' && e.target.classList.contains('template-btn') && e.target.getAttribute('href') && e.target.getAttribute('href').indexOf('course-') !== -1) ? e.target : (e.target.closest && e.target.closest('a.template-btn[href*="course-"]'));
+                if (enrollLink) {
+                    e.preventDefault();
+                    openGetStartedModal(true);
+                    openMenu(false);
+                    enrollLink.blur();
+                }
+                if (e.target.classList && e.target.classList.contains('js-get-started-close')) {
+                    e.preventDefault();
+                    openGetStartedModal(false);
+                }
+                if (e.target === modal) openGetStartedModal(false);
+            });
+            modal.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') openGetStartedModal(false);
+            });
+        }
     }
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', run);
