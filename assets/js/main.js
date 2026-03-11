@@ -172,7 +172,6 @@
             $("." + tabClass + "-content").addClass("active").siblings().removeClass("active");
         });
 
-
     });
 
     $(window).on('scroll', function() {

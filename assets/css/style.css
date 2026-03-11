@@ -4019,3 +4019,39 @@ nav .main-menu li a::before {
     display: inline-block;
     margin-top: 30px;
 }
+
+/* Course curriculum accordion (all course detail pages) */
+.curriculum-accordion { border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+.curriculum-item { border-bottom: 1px solid #e5e7eb; }
+.curriculum-item:last-child { border-bottom: none; }
+.curriculum-item-header {
+    width: 100%;
+    padding: 14px 18px;
+    text-align: left;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    background: #f9fafb;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: background 0.2s;
+}
+.curriculum-item-header:hover { background: #f3f4f6; }
+.curriculum-item.open .curriculum-item-header { background: #fff; color: #126d63; }
+.curriculum-chevron { font-size: 14px; color: #6b7280; transition: transform 0.25s ease; flex-shrink: 0; }
+.curriculum-item.open .curriculum-chevron { transform: rotate(180deg); color: #126d63; }
+.curriculum-item-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-out;
+}
+.curriculum-item.open .curriculum-item-body { max-height: 1200px; }
+.curriculum-item-body ul,
+.curriculum-item-body p { padding: 16px 18px 18px; margin: 0; background: #fff; color: #606060; }
+.curriculum-item-body ul { padding-left: 2rem; }
+.curriculum-item-body li { margin-bottom: 6px; }
+.curriculum-item-body li:last-child { margin-bottom: 0; }
