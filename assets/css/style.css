@@ -1100,6 +1100,92 @@ nav .main-menu li a::before {
     color: #1a1a1a;
 }
 
+/* Custom dropdown (contact form) – black highlight in open list */
+.contact-select-wrap {
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+}
+.contact-select-wrap .contact-select-native {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+}
+.contact-select-wrap .custom-select-trigger {
+    display: block;
+    width: 100%;
+    padding: 15px 40px 15px 30px;
+    min-height: 52px;
+    border: 1px solid #eaeaea;
+    background: #fff;
+    color: #adb5bd;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+    cursor: pointer;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+}
+.contact-select-wrap .custom-select-trigger.has-value {
+    color: #1a1a1a;
+}
+.contact-select-wrap .custom-select-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 1px solid #eaeaea;
+    border-top: 0;
+    background: #fff;
+    max-height: 260px;
+    overflow-y: auto;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.contact-select-wrap .custom-select-option {
+    padding: 6px 30px;
+    cursor: pointer;
+    color: #606060;
+    transition: background 0.15s ease, color 0.15s ease;
+}
+.contact-select-wrap .custom-select-option:hover,
+.contact-select-wrap .custom-select-option[aria-selected="true"] {
+    background: #1a1a1a;
+    color: #fff;
+}
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* Dropdown option highlight: black instead of blue (native select fallback) */
+.contact-form form select option:checked,
+.contact-form form select option:focus {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.contact-form form select:focus {
+    border-color: #1a1a1a;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
 .contact-form form textarea {
     height: 200px;
 }

@@ -79,17 +79,32 @@
                                     <input type="tel" name="phone" placeholder="Phone Number">
                                 </div>
                                 <div class="col-md-6">
-                                    <select name="course" class="contact-select" required>
-                                        <option value="">Course Interested In</option>
-                                        <option value="AI Powered Automation Testing">AI Powered Automation Testing</option>
-                                        <option value="Java Full Stack">Java Full Stack</option>
-                                        <option value="Python Full Stack">Python Full Stack</option>
-                                        <option value="DevOps">DevOps</option>
-                                        <option value="Data Analytics">Data Analytics</option>
-                                        <option value="AI & Machine Learning">AI & Machine Learning</option>
-                                        <option value="MERN Full Stack">MERN Full Stack</option>
-                                        <option value="MEAN Full Stack">MEAN Full Stack</option>
-                                    </select>
+                                    <div class="custom-select-wrap contact-select-wrap">
+                                        <select name="course" class="contact-select contact-select-native" required aria-hidden="true" tabindex="-1">
+                                            <option value="">Course Interested In</option>
+                                            <option value="AI Powered Automation Testing">AI Powered Automation Testing</option>
+                                            <option value="Java Full Stack">Java Full Stack</option>
+                                            <option value="Python Full Stack">Python Full Stack</option>
+                                            <option value="DevOps">DevOps</option>
+                                            <option value="Data Analytics">Data Analytics</option>
+                                            <option value="AI & Machine Learning">AI & Machine Learning</option>
+                                            <option value="MERN Full Stack">MERN Full Stack</option>
+                                            <option value="MEAN Full Stack">MEAN Full Stack</option>
+                                        </select>
+                                        <button type="button" class="custom-select-trigger contact-select" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="course-label" id="course-select-trigger">Course Interested In</button>
+                                        <span id="course-label" class="sr-only">Course Interested In</span>
+                                        <ul class="custom-select-list" role="listbox" aria-labelledby="course-label" id="course-select-list" hidden>
+                                            <li role="option" data-value="" class="custom-select-option">Course Interested In</li>
+                                            <li role="option" data-value="AI Powered Automation Testing" class="custom-select-option">AI Powered Automation Testing</li>
+                                            <li role="option" data-value="Java Full Stack" class="custom-select-option">Java Full Stack</li>
+                                            <li role="option" data-value="Python Full Stack" class="custom-select-option">Python Full Stack</li>
+                                            <li role="option" data-value="DevOps" class="custom-select-option">DevOps</li>
+                                            <li role="option" data-value="Data Analytics" class="custom-select-option">Data Analytics</li>
+                                            <li role="option" data-value="AI & Machine Learning" class="custom-select-option">AI & Machine Learning</li>
+                                            <li role="option" data-value="MERN Full Stack" class="custom-select-option">MERN Full Stack</li>
+                                            <li role="option" data-value="MEAN Full Stack" class="custom-select-option">MEAN Full Stack</li>
+                                        </ul>
+                                    </div>
                                 </div>
                                 <div class="col-12">
                                     <textarea name="message" rows="5" placeholder="Your Message *" required></textarea>
@@ -114,11 +129,57 @@
     <script src="assets/js/main.js"></script>
     <script>
     (function() {
-        var sel = document.querySelector('.contact-form select[name="course"]');
-        if (sel) {
-            function update() { sel.classList.toggle('has-value', sel.value !== ''); }
-            sel.addEventListener('change', update);
-            update();
+        var wrap = document.querySelector('.contact-select-wrap');
+        if (!wrap) return;
+        var nativeSelect = wrap.querySelector('.contact-select-native');
+        var trigger = document.getElementById('course-select-trigger');
+        var list = document.getElementById('course-select-list');
+        var options = list ? list.querySelectorAll('.custom-select-option') : [];
+
+        function setTriggerText(text) {
+            if (trigger) trigger.textContent = text || 'Course Interested In';
+            if (trigger) trigger.classList.toggle('has-value', !!text);
+        }
+
+        function close() {
+            if (list) list.hidden = true;
+            if (trigger) trigger.setAttribute('aria-expanded', 'false');
+        }
+
+        function open() {
+            if (list) list.hidden = false;
+            if (trigger) trigger.setAttribute('aria-expanded', 'true');
+            options.forEach(function(li) {
+                li.setAttribute('aria-selected', nativeSelect && li.getAttribute('data-value') === nativeSelect.value);
+            });
+        }
+
+        function syncFromNative() {
+            var opt = nativeSelect.options[nativeSelect.selectedIndex];
+            setTriggerText(opt ? opt.textContent : '');
+        }
+
+        if (trigger && list) {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                if (list.hidden) open(); else close();
+            });
+            options.forEach(function(li) {
+                li.addEventListener('click', function() {
+                    var val = this.getAttribute('data-value');
+                    nativeSelect.value = val;
+                    setTriggerText(this.textContent);
+                    options.forEach(function(o) { o.setAttribute('aria-selected', o === li); });
+                    close();
+                });
+            });
+        }
+        document.addEventListener('click', function(e) {
+            if (wrap && !wrap.contains(e.target)) close();
+        });
+        if (nativeSelect) {
+            nativeSelect.addEventListener('change', syncFromNative);
+            syncFromNative();
         }
     })();
     </script>
