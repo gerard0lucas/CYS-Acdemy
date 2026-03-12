@@ -696,7 +696,7 @@ body.mobile-menu-open { overflow: hidden; }
                     openTrigger.blur();
                 }
                 var enrollLink = (e.target.tagName === 'A' && e.target.classList.contains('template-btn') && e.target.getAttribute('href') && e.target.getAttribute('href').indexOf('course-') !== -1) ? e.target : (e.target.closest && e.target.closest('a.template-btn[href*="course-"]'));
-                if (enrollLink) {
+                if (enrollLink && !enrollLink.classList.contains('btn-2')) {
                     e.preventDefault();
                     openGetStartedModal(true);
                     openMenu(false);
