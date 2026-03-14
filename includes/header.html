@@ -7,25 +7,54 @@
     .header-section .topbar-area { position: relative; z-index: 1002; }
 }
 
-/* Topbar – mobile alignment */
-@media (max-width: 991.98px) {
-    .header-section .topbar-area { padding: 10px 0; text-align: center; }
-    .header-section .topbar-area .row { margin-left: 0; margin-right: 0; flex-direction: column; align-items: center; gap: 8px; }
-    .header-section .topbar-area .row [class*="col-"] { max-width: 100%; flex: 0 0 100%; padding-left: 15px; padding-right: 15px; }
-    .header-section .topbar-area .topbar-contact,
-    .header-section .topbar-area .topbar-button { text-align: center; margin-top: 0; }
-    .header-section .topbar-area .topbar-contact { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 12px; }
-    .header-section .topbar-area .topbar-button { display: none !important; }
-    .header-section .topbar-area .topbar-contact a.margin-left,
-    .header-section .topbar-area .topbar-button a.margin-left { margin-left: 16px; }
-    .header-section .topbar-area a { font-size: 14px; white-space: nowrap; }
+/* Topbar – mobile: hide default row, show scrolling text */
+.topbar-mobile-scroll-wrap {
+    display: none;
+    overflow: hidden;
+    padding: 10px 0;
+    width: 100%;
 }
-@media (max-width: 575.98px) {
-    .header-section .topbar-area { padding: 8px 0; }
-    .header-section .topbar-area .topbar-contact { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 12px; }
-    .header-section .topbar-area .topbar-contact a.margin-left { margin-left: 0; }
-    .header-section .topbar-area .topbar-button { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-    .header-section .topbar-area .topbar-button a.margin-left { margin-left: 0; }
+.topbar-mobile-scroll-inner {
+    overflow: hidden;
+    width: 100%;
+}
+.topbar-mobile-scroll-track {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: max-content;
+    animation: topbar-marquee 35s linear infinite;
+    white-space: nowrap;
+}
+.topbar-mobile-scroll-track:hover {
+    animation-play-state: paused;
+}
+.topbar-mobile-scroll-wrap a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+.topbar-mobile-scroll-wrap a:hover { color: rgba(255,255,255,0.9); }
+.topbar-mobile-scroll-wrap .tb-sep {
+    color: rgba(255,255,255,0.7);
+    font-size: 12px;
+    flex-shrink: 0;
+}
+@keyframes topbar-marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+@media (max-width: 991.98px) {
+    .header-section .topbar-area { padding: 0; text-align: center; }
+    .header-section .topbar-area .topbar-mobile-scroll-wrap { display: block; }
+    .header-section .topbar-area .container > .row { display: none !important; }
+}
+@media (min-width: 992px) {
+    .header-section .topbar-area .topbar-mobile-scroll-wrap { display: none !important; }
 }
 
 /* Menu row – logo + hamburger alignment */
@@ -441,6 +470,24 @@ body.mobile-menu-open { overflow: hidden; }
 <header class="header-section header-section-3">
     <div class="topbar-area">
         <div class="container">
+            <!-- Mobile only: scrolling contact text -->
+            <div class="topbar-mobile-scroll-wrap" aria-label="Contact info">
+                <div class="topbar-mobile-scroll-inner">
+                    <div class="topbar-mobile-scroll-track">
+                        <a href="tel:+919902758811"><i class="fa fa-phone"></i> +91 99027 58811</a>
+                        <span class="tb-sep">•</span>
+                        <a href="tel:+919902538811"><i class="fa fa-phone"></i> +91 99025 38811</a>
+                        <span class="tb-sep">•</span>
+                        <a href="mailto:info@cysacademy.in"><i class="fa fa-envelope"></i> info@cysacademy.in</a>
+                        <span class="tb-sep">•</span>
+                        <a href="tel:+919902758811"><i class="fa fa-phone"></i> +91 99027 58811</a>
+                        <span class="tb-sep">•</span>
+                        <a href="tel:+919902538811"><i class="fa fa-phone"></i> +91 99025 38811</a>
+                        <span class="tb-sep">•</span>
+                        <a href="mailto:info@cysacademy.in"><i class="fa fa-envelope"></i> info@cysacademy.in</a>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="topbar-contact">
