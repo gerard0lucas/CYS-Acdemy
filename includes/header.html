@@ -134,13 +134,13 @@ body.mobile-menu-open { overflow: hidden; }
 }
 
 .mobile-nav-inner {
-    padding: 80px 20px 20px 20px;
+    padding: 116px 20px 20px 20px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
     text-align: left;
 }
-@media (max-width: 575.98px) { .mobile-nav-inner { padding: 72px 16px 16px 16px; } }
+@media (max-width: 575.98px) { .mobile-nav-inner { padding: 108px 16px 16px 16px; } }
 
 .mobile-menu-list { list-style: none; margin: 0; padding: 0; text-align: left; flex: 1 1 auto; }
 .mobile-menu-list > li { border-bottom: 1px solid #e5e7eb; }
@@ -156,8 +156,15 @@ body.mobile-menu-open { overflow: hidden; }
     text-align: left;
 }
 .mobile-menu-list > li > a:hover { color: #fe630e; }
+.mobile-menu-list > li > a.mobile-cta {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: center !important;
+}
 .mobile-cta {
-    display: block;
     margin-top: 20px !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -167,9 +174,10 @@ body.mobile-menu-open { overflow: hidden; }
     font-weight: 600;
     font-size: 16px;
     border-radius: 8px;
-    text-align: center;
     text-decoration: none;
 }
+.mobile-cta .fa { margin-left: 8px; }
+.mobile-cta-brochure { margin-top: 12px !important; }
 .mobile-cta:hover { background: #126d63 !important; color: #fff !important; }
 
 /* Courses submenu – light */
@@ -261,6 +269,16 @@ body.mobile-menu-open { overflow: hidden; }
 .mobile-nav-footer .mobile-nav-social a:hover { background: #fe630e; color: #fff; }
 
 /* Get Started modal */
+/* SweetAlert above Get Started modal + match site */
+.swal2-container {
+    z-index: 10000 !important;
+}
+.swal-cys {
+    font-family: "Roboto", sans-serif;
+}
+.swal-cys .swal2-title { color: #1a1a1a; }
+.swal-cys .swal2-html-container { color: #606060; }
+
 .get-started-modal-overlay {
     position: fixed;
     inset: 0;
@@ -499,7 +517,7 @@ body.mobile-menu-open { overflow: hidden; }
                 <div class="col-lg-6">
                     <div class="topbar-button">
                         <a href="contact.html"><span><i class="fa fa-sign-in"></i></span> Enquire Now</a>
-                        <a href="../assets/images/brochure.jpeg" class="margin-left" target="_blank" rel="noopener noreferrer"><span><i class="fa fa-download"></i></span> Download Brochure</a>
+                        <a href="#" class="margin-left js-brochure-open" aria-label="Download Brochure"><span><i class="fa fa-download"></i></span> Download Brochure</a>
                     </div>
                 </div>
             </div>
@@ -565,7 +583,8 @@ body.mobile-menu-open { overflow: hidden; }
                     </li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="#" class="mobile-cta js-get-started-open">Get Started</a></li>
+                    <li><a href="#" class="mobile-cta js-get-started-open">Get Started <i class="fa fa-rocket" aria-hidden="true"></i></a></li>
+                    <li><a href="#" class="mobile-cta mobile-cta-brochure js-brochure-open">Download Brochure <i class="fa fa-download" aria-hidden="true"></i></a></li>
                 </ul>
                 <div class="mobile-nav-footer">
                     <span class="mobile-nav-social-label">Follow us</span>
@@ -593,19 +612,19 @@ body.mobile-menu-open { overflow: hidden; }
             <button type="button" class="modal-close js-get-started-close" aria-label="Close">×</button>
         </div>
         <div class="modal-body">
-            <form class="get-started-form" action="contact.html" method="get">
+            <form class="get-started-form" id="get-started-form" action="contact.html" method="get">
                 <div class="form-group">
-                    <input type="text" name="name" placeholder="Your Name *" required>
+                    <input type="text" name="Name" placeholder="Your Name *" required>
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" placeholder="Your Email *" required>
+                    <input type="email" name="Email" placeholder="Your Email *" required>
                 </div>
                 <div class="form-group">
-                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <input type="tel" name="Phone" placeholder="Phone Number (10–12 digits)" required pattern="[0-9]{10,12}" title="Enter a 10 to 12 digit number" maxlength="12" inputmode="numeric" autocomplete="tel">
                 </div>
                 <div class="form-group">
-                    <select name="course">
-                        <option value="">Course Interested In</option>
+                    <select name="Course" required>
+                        <option disabled selected value="">Course Interested In</option>
                         <option value="AI Powered Automation Testing">AI Powered Automation Testing</option>
                         <option value="Java Full Stack">Java Full Stack</option>
                         <option value="Python Full Stack">Python Full Stack</option>
@@ -617,15 +636,48 @@ body.mobile-menu-open { overflow: hidden; }
                     </select>
                 </div>
                 <div class="form-group">
-                    <textarea name="message" rows="3" placeholder="Your Message *" required></textarea>
+                    <textarea name="Message" rows="3" placeholder="Your Message"></textarea>
                 </div>
                 <div class="form-group-consent">
-                    <input type="checkbox" id="get-started-consent" name="consent" required aria-describedby="consent-desc">
+                    <input type="checkbox" id="get-started-consent" name="Consent" required aria-describedby="consent-desc">
                     <label for="get-started-consent" id="consent-desc">
                         I agree to share my details with CYS Academy for course enquiry.
                     </label>
                 </div>
                 <button type="submit" class="modal-submit" id="get-started-submit" disabled>Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Download Brochure popup form -->
+<div class="get-started-modal-overlay" id="brochure-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="brochure-modal-title">
+    <div class="get-started-modal" role="document">
+        <div class="modal-header modal-header-wrap">
+            <div class="modal-header-text">
+                <h3 class="modal-title" id="brochure-modal-title">Download Brochure</h3>
+                <p class="modal-subtitle">Share your details and we’ll send you the CYS Academy brochure.</p>
+            </div>
+            <button type="button" class="modal-close js-brochure-close" aria-label="Close">×</button>
+        </div>
+        <div class="modal-body">
+            <form class="brochure-form" id="brochure-form" action="#" method="get">
+                <div class="form-group">
+                    <input type="text" name="Name" placeholder="Your Name *" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="Email" placeholder="Your Email *" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="Phone" placeholder="Phone Number (10–12 digits)" required pattern="[0-9]{10,12}" title="Enter a 10 to 12 digit number" maxlength="12" inputmode="numeric" autocomplete="tel">
+                </div>
+                <div class="form-group-consent">
+                    <input type="checkbox" id="brochure-consent" name="Consent" required aria-describedby="brochure-consent-desc">
+                    <label for="brochure-consent" id="brochure-consent-desc">
+                        I agree to share my details with CYS Academy to receive the brochure.
+                    </label>
+                </div>
+                <button type="submit" class="modal-submit" id="brochure-submit" disabled>Download Brochure</button>
             </form>
         </div>
     </div>
@@ -682,6 +734,8 @@ body.mobile-menu-open { overflow: hidden; }
 
 <script id="header-mobile-script">
 (function() {
+    var GET_STARTED_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyxcytFEYa_8XQfP_ve8N6CBXcE0If7ATpdT8tJkBrKlBBBf7AolUBIxJbFIqBRgzXPFQ/exec';
+
     function run() {
         var hamburger = document.getElementById('mobile-hamburger');
         var panel = document.getElementById('mobile-nav-panel');
@@ -718,17 +772,130 @@ body.mobile-menu-open { overflow: hidden; }
         if (modal) {
             var consentCheck = document.getElementById('get-started-consent');
             var submitBtn = document.getElementById('get-started-submit');
+            var getStartedForm = document.getElementById('get-started-form');
+
             function openGetStartedModal(open) {
                 modal.classList.toggle('is-open', open);
                 modal.setAttribute('aria-hidden', !open);
                 document.body.style.overflow = open ? 'hidden' : '';
                 if (!open) {
-                    var form = modal.querySelector('.get-started-form');
-                    if (form) form.reset();
+                    if (getStartedForm) getStartedForm.reset();
                     if (consentCheck) consentCheck.checked = false;
                     if (submitBtn) submitBtn.disabled = true;
                 }
             }
+
+            function showLoading() {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        title: 'Sending your details...',
+                        text: 'We\'ll be with you in a moment.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        showConfirmButton: false,
+                        didOpen: function() { Swal.showLoading(); }
+                    });
+                } else if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.setAttribute('data-original-text', submitBtn.textContent);
+                    submitBtn.textContent = 'Sending...';
+                }
+            }
+            function showSuccess(thenFn) {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'We\'ve got it!',
+                        text: 'Thanks for reaching out. Our team will get in touch with you soon to help you start your journey.',
+                        confirmButtonText: 'Done',
+                        confirmButtonColor: '#fe630e',
+                        customClass: { popup: 'swal-cys' }
+                    }).then(thenFn);
+                } else {
+                    alert('Thanks for reaching out. Our team will get in touch with you soon.');
+                    if (thenFn) thenFn();
+                }
+            }
+            function showError() {
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Something went wrong',
+                        text: 'We couldn\'t send your details right now. Please try again in a moment or call us directly.',
+                        confirmButtonText: 'Try Again',
+                        confirmButtonColor: '#fe630e',
+                        customClass: { popup: 'swal-cys' }
+                    });
+                } else {
+                    alert('We couldn\'t send your details right now. Please try again or call us.');
+                }
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = (submitBtn.getAttribute('data-original-text') || 'Submit').replace('Sending...', 'Submit');
+                }
+            }
+
+            function handleGetStartedSubmit(e) {
+                e.preventDefault();
+                if (!getStartedForm) return;
+                if (submitBtn && submitBtn.disabled) return;
+
+                var phoneRaw = getStartedForm.querySelector('[name="Phone"]').value.trim();
+                var phoneDigits = phoneRaw.replace(/\D/g, '');
+                if (phoneDigits.length < 10 || phoneDigits.length > 12) {
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Invalid phone number',
+                            text: 'Please enter a 10 to 12 digit number.',
+                            confirmButtonColor: '#fe630e',
+                            customClass: { popup: 'swal-cys' }
+                        });
+                    } else {
+                        alert('Please enter a 10 to 12 digit phone number.');
+                    }
+                    return;
+                }
+
+                showLoading();
+
+                var params = new URLSearchParams();
+                var istTime = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+                params.append('Date', istTime.toISOString().split('T')[0]);
+                params.append('Time', istTime.toTimeString().split(' ')[0]);
+                params.append('Name', getStartedForm.querySelector('[name="Name"]').value.trim());
+                params.append('Email', getStartedForm.querySelector('[name="Email"]').value.trim());
+                params.append('Phone', phoneDigits);
+                params.append('Course', getStartedForm.querySelector('[name="Course"]').value.trim());
+                params.append('Message', getStartedForm.querySelector('[name="Message"]').value.trim());
+                params.append('Consent', getStartedForm.querySelector('[name="Consent"]').checked ? 'Yes' : '');
+
+                fetch("https://script.google.com/macros/s/AKfycbyxcytFEYa_8XQfP_ve8N6CBXcE0If7ATpdT8tJkBrKlBBBf7AolUBIxJbFIqBRgzXPFQ/exec", {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                })
+                .then(function() {
+                    showSuccess(function() {
+                        getStartedForm.reset();
+                        if (consentCheck) consentCheck.checked = false;
+                        if (submitBtn) {
+                            submitBtn.disabled = true;
+                            submitBtn.textContent = 'Submit';
+                        }
+                        openGetStartedModal(false);
+                    });
+                })
+                .catch(function() {
+                    showError();
+                });
+            }
+
+            if (getStartedForm) {
+                getStartedForm.addEventListener('submit', handleGetStartedSubmit);
+            }
+
             if (consentCheck && submitBtn) {
                 consentCheck.addEventListener('change', function() {
                     submitBtn.disabled = !consentCheck.checked;
@@ -742,6 +909,13 @@ body.mobile-menu-open { overflow: hidden; }
                     openMenu(false);
                     openTrigger.blur();
                 }
+                var brochureOpen = e.target.classList && e.target.classList.contains('js-brochure-open') ? e.target : (e.target.closest && e.target.closest('.js-brochure-open'));
+                if (brochureOpen) {
+                    e.preventDefault();
+                    if (typeof openBrochureModal === 'function') openBrochureModal(true);
+                    openMenu(false);
+                    brochureOpen.blur();
+                }
                 var enrollLink = (e.target.tagName === 'A' && e.target.classList.contains('template-btn') && e.target.getAttribute('href') && e.target.getAttribute('href').indexOf('course-') !== -1) ? e.target : (e.target.closest && e.target.closest('a.template-btn[href*="course-"]'));
                 if (enrollLink && !enrollLink.classList.contains('btn-2')) {
                     e.preventDefault();
@@ -753,10 +927,155 @@ body.mobile-menu-open { overflow: hidden; }
                     e.preventDefault();
                     openGetStartedModal(false);
                 }
+                if (e.target.classList && e.target.classList.contains('js-brochure-close')) {
+                    e.preventDefault();
+                    if (typeof openBrochureModal === 'function') openBrochureModal(false);
+                }
                 if (e.target === modal) openGetStartedModal(false);
+                if (brochureModal && e.target === brochureModal) openBrochureModal(false);
             });
             modal.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape') openGetStartedModal(false);
+            });
+        }
+
+        var brochureModal = document.getElementById('brochure-modal');
+        var brochureForm = document.getElementById('brochure-form');
+        var brochureConsent = document.getElementById('brochure-consent');
+        var brochureSubmitBtn = document.getElementById('brochure-submit');
+        var BROCHURE_PDF_URL = new URL('assets/docs/cys.pdf', window.location.href).href;
+
+        function openBrochureModal(open) {
+            if (!brochureModal) return;
+            brochureModal.classList.toggle('is-open', open);
+            brochureModal.setAttribute('aria-hidden', !open);
+            document.body.style.overflow = open ? 'hidden' : (document.getElementById('get-started-modal') && document.getElementById('get-started-modal').classList.contains('is-open') ? 'hidden' : '');
+            if (!open) {
+                if (brochureForm) brochureForm.reset();
+                if (brochureConsent) brochureConsent.checked = false;
+                if (brochureSubmitBtn) brochureSubmitBtn.disabled = true;
+            }
+        }
+
+        if (brochureModal) {
+            brochureModal.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') openBrochureModal(false);
+            });
+        }
+
+        if (brochureConsent && brochureSubmitBtn) {
+            brochureConsent.addEventListener('change', function() {
+                brochureSubmitBtn.disabled = !brochureConsent.checked;
+            });
+        }
+
+        if (brochureForm) {
+            brochureForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                var phoneRaw = brochureForm.querySelector('[name="Phone"]').value.trim();
+                var phoneDigits = phoneRaw.replace(/\D/g, '');
+                if (phoneDigits.length < 10 || phoneDigits.length > 12) {
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Invalid phone number',
+                            text: 'Please enter a 10 to 12 digit number.',
+                            confirmButtonColor: '#fe630e',
+                            customClass: { popup: 'swal-cys' }
+                        });
+                    } else {
+                        alert('Please enter a 10 to 12 digit phone number.');
+                    }
+                    return;
+                }
+
+                if (typeof Swal !== 'undefined') {
+                    Swal.fire({
+                        title: 'Sending your details...',
+                        text: 'We\'ll start your download in a moment.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false,
+                        showConfirmButton: false,
+                        customClass: { popup: 'swal-cys' },
+                        didOpen: function() { Swal.showLoading(); }
+                    });
+                } else if (brochureSubmitBtn) {
+                    brochureSubmitBtn.disabled = true;
+                    brochureSubmitBtn.textContent = 'Sending...';
+                }
+
+                var params = new URLSearchParams();
+                var istTime = new Date(new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+                params.append('Date', istTime.toISOString().split('T')[0]);
+                params.append('Time', istTime.toTimeString().split(' ')[0]);
+                params.append('Name', brochureForm.querySelector('[name="Name"]').value.trim());
+                params.append('Email', brochureForm.querySelector('[name="Email"]').value.trim());
+                params.append('Phone', phoneDigits);
+                params.append('Message', 'Downloaded brochure');
+                params.append('Consent', brochureConsent && brochureConsent.checked ? 'Yes' : '');
+                params.append('Form_type', 'brochure-form');
+
+                fetch(GET_STARTED_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: params.toString()
+                })
+                .then(function() {
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Brochure ready!',
+                            text: 'Your download will start now.',
+                            confirmButtonText: 'OK',
+                            confirmButtonColor: '#fe630e',
+                            customClass: { popup: 'swal-cys' }
+                        }).then(function() {
+                            var a = document.createElement('a');
+                            a.href = BROCHURE_PDF_URL;
+                            a.download = 'CYS-Academy-Brochure.pdf';
+                            a.rel = 'noopener';
+                            document.body.appendChild(a);
+                            a.click();
+                            document.body.removeChild(a);
+                            brochureForm.reset();
+                            if (brochureConsent) brochureConsent.checked = false;
+                            if (brochureSubmitBtn) { brochureSubmitBtn.disabled = true; brochureSubmitBtn.textContent = 'Download Brochure'; }
+                            openBrochureModal(false);
+                        });
+                    } else {
+                        var a = document.createElement('a');
+                        a.href = BROCHURE_PDF_URL;
+                        a.download = 'CYS-Academy-Brochure.pdf';
+                        a.rel = 'noopener';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        brochureForm.reset();
+                        if (brochureConsent) brochureConsent.checked = false;
+                        if (brochureSubmitBtn) { brochureSubmitBtn.disabled = true; brochureSubmitBtn.textContent = 'Download Brochure'; }
+                        openBrochureModal(false);
+                        alert('Thank you. Your brochure download has started.');
+                    }
+                })
+                .catch(function() {
+                    if (typeof Swal !== 'undefined') {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Something went wrong',
+                            text: 'We couldn\'t send your details. Please try again or call us.',
+                            confirmButtonText: 'Try Again',
+                            confirmButtonColor: '#fe630e',
+                            customClass: { popup: 'swal-cys' }
+                        });
+                    } else {
+                        alert('Something went wrong. Please try again.');
+                    }
+                    if (brochureSubmitBtn) {
+                        brochureSubmitBtn.disabled = false;
+                        brochureSubmitBtn.textContent = 'Download Brochure';
+                    }
+                });
             });
         }
     }
