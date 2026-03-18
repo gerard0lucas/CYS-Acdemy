@@ -905,6 +905,11 @@ body.mobile-menu-open { overflow: hidden; }
                 var openTrigger = e.target.classList && e.target.classList.contains('js-get-started-open') ? e.target : (e.target.closest && e.target.closest('.js-get-started-open'));
                 if (openTrigger) {
                     e.preventDefault();
+                    var courseSelect = getStartedForm && getStartedForm.querySelector('select[name="Course"]');
+                    if (courseSelect) {
+                        var courseFromPage = openTrigger.getAttribute('data-course');
+                        courseSelect.value = courseFromPage || '';
+                    }
                     openGetStartedModal(true);
                     openMenu(false);
                     openTrigger.blur();
